@@ -68,14 +68,14 @@ body {
   background-color: #e9e9e9 !important;
 }
 /*form styles*/
-.form-steps {
+.steps {
     width: 675px;
     height: 700px;
   margin: 50px auto;
   position: relative;
 }
 
-.form-steps fieldset {
+.steps fieldset {
   background: white;
   border: 0 none;
   border-radius: 3px;
@@ -90,11 +90,11 @@ body {
   position: absolute;
 }
 /*Hide all except first fieldset*/
-.form-steps fieldset:not(:first-of-type) {
+.steps fieldset:not(:first-of-type) {
   display: none;
 }
 /*inputs*/
-.form-steps label{
+.steps label{
   color: #333333;
   text-align: left !important;
   font-size: 15px;
@@ -105,7 +105,7 @@ body {
 }
 
 
-.form-steps input, .form-steps textarea {
+.steps input, .steps textarea {
   outline: none;
   display: block;
   width: 100%;
@@ -131,7 +131,7 @@ body {
   transition: all 0.3s linear 0s;
 }
 
-.form-steps input:focus, .form-steps textarea:focus{
+.steps input:focus, .steps textarea:focus{
   color: #333333;
   border: 1px solid #566573;
 }
@@ -184,7 +184,7 @@ body {
   }
 
 /*buttons*/
-.form-steps .action-button, .action-button {
+.steps .action-button, .action-button {
   width: 100px !important;
   background: #566573;
   font-weight: bold;
@@ -202,19 +202,19 @@ body {
   display: block;
 }
 
-.form-steps .next, .form-steps .submit{
+.steps .next, .steps .submit{
     float: right;
 }
 
-.form-steps .previous{
+.steps .previous{
   float:left;
 }
 
-.form-steps .action-button:hover, .form-steps .action-button:focus, .action-button:hover, .action-button:focus {
+.steps .action-button:hover, .steps .action-button:focus, .action-button:hover, .action-button:focus {
   background:#798591;;
 }
 
-.form-steps .explanation{
+.steps .explanation{
 display: block;
   clear: both;
   width: 540px;
@@ -423,7 +423,7 @@ display: block;
 @media (max-width:1000px){
 
 /*brings inputs down in size */
-.form-steps input, .form-steps textarea {
+.steps input, .steps textarea {
   outline: none;
   display: block;
   width: 100% !important;
@@ -444,7 +444,7 @@ display: block;
 @media (max-width:675px){
 /*mobile phone: uncollapse all fields: remove progress bar*/
 
-.form-steps {
+.steps {
   width: 100%;
   margin: 50px auto;
   position: relative;
@@ -475,26 +475,26 @@ display: block;
   }
 
 /*show hidden fieldsets */
-.form-steps fieldset:not(:first-of-type) {
+.steps fieldset:not(:first-of-type) {
   display: block;
 }
 
-.form-steps fieldset{
+.steps fieldset{
   position:relative;
   width: 100%;
   margin:0 auto;
   margin-top: 45px;
 }
 
-.form-steps .next, .form-steps .previous{
+.steps .next, .steps .previous{
   display:none;
 }
 
-.form-steps .explanation{
+.steps .explanation{
   display:none;
 }
 
-.form-steps .submit {
+.steps .submit {
   float: right;
   margin: 28px auto 10px;
   width: 100% !important;
