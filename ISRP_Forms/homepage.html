@@ -8,6 +8,7 @@
   <title></title>
   <link href="homepage.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	<nav class="navbar navbar-inverse" style="background-color: #313b3d ; min-height: 90px;
@@ -30,10 +31,31 @@
 <div class="container">
 <div id="modal-3" class="modal" data-modal-effect="slide-top">
   <div class="modal-content">
-    <h2 class="fs-title">Score Index</h2>
-    <h3 class="fs-subtitle">Getting the most out of your data</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce convallis consectetur ligula. Morbi dapibus tellus a ipsum sollicitudin aliquet. Phasellus id est lacus. Pellentesque a elementum velit, a tempor nulla. Mauris mauris lectus, tincidunt et purus rhoncus, eleifend convallis turpis. Nunc ullamcorper bibendum diam, vitae tempus dolor hendrerit iaculis. Phasellus tellus elit, feugiat vel mi et, euismod varius augue. Nulla a porttitor sapien. Donec vestibulum ac nisl sed bibendum. Praesent neque ipsum, commodo eget venenatis vel, tempus sit amet ante. Curabitur vel odio eget urna dapibus imperdiet sit amet eget felis. Vestibulum eros velit, posuere a metus eget, aliquam euismod purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</p>
-    <input type="button" name="next" class="next action-button modal-close" value="Got it!">
+    <h2 class="fs-title">Instructions for filling up the application form</h2>
+    <br>
+    <ol style="text-align: left ; font-size: 15px;">
+      <li> All fields are mandatory. In case any field is not applicable then please put ‘NA’.</li>
+      <li> Personal details must be filled as per your passport.</li>
+      <li> The application will require the following scanned documents in PDF format (size less than 500 kB). Keep the scanned documents ready before you proceed. 
+        Documents once uploaded cannot be changed.
+        <ul style="text-align: left">
+          <li>Passport </li>
+          <li>Academic Transcripts</li>
+          <li>Curriculum Vitae</li>
+          <li>Statement of Research Interest (mandatory for Doctoral Applications)</li> 
+          <li>Scholarship details (if applicable)</li> 
+          <li>GATE Scorecard (if applicable)</li> 
+          <li>Work Experience Details (if applicable)</li> 
+        </ul>
+      </li>
+      <li>You will also have to upload your photo and signature in jpg format (size less than 250 kB).</li> 
+      <li>You can click on the 'Save' button in order to save your application and continue at a later stage. </li> 
+      <li>The application will be considered as complete on clicking the 'Apply' button. You will not be able to make any changes after submitting.</li>
+      <li>The application fee is INR 500. After submitting the application, you will be able to make the payment through a payment gateway. After successful payment, 
+        you will be provided with an option to download the payment details in PDF format. Download it and keep it with you for your reference.</li>  
+      <li>Please note that the application fee is exempted for those applicants applying through ICCR/EDCIL(SII).</li>
+    </ol>
+    <input type="button" style="margin-bottom: 0;" name="next" class="next action-button modal-close" value="Got it!">
   </div>
 </div>
 </div>
@@ -90,7 +112,7 @@
 
     <!-- End Total Number of Constituents in Your Database Field -->
     <input type="button" data-page="1" name="next" class="next action-button" value="Next" />
-    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> What Is This?</div>
+    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> Instructions</div>
   </fieldset>
 
 
