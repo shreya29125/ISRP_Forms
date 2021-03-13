@@ -7,355 +7,475 @@
 
   <title></title>
   <link href="homepage.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="css-circular-prog-bar.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/5f59ca6ad3.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-	<nav class="navbar navbar-inverse" style="background-color: #313b3d ; min-height: 90px;
+  <nav class="navbar navbar-inverse" style="background-color: #313b3d ; min-height: 90px;
      padding-left: 20px; padding-right: 40px; margin-bottom: 0 !important;">
     <div class="container-fluid">
       <div class="navbar-header">
-           <a class="navbar-brand" href="/">
-              <img src="header.png" style="width: 350px;" alt="logo">
-          	</a>
+        <a class="navbar-brand" href="/">
+          <img src="header.png" style="width: 350px;" alt="logo">
+        </a>
       </div>
 
       <ul class="nav navbar-nav navbar-right" style="margin-top: 15px;">
 
-        <li><a href="/deg_portal/logout/" style="font-size: 20px !important;"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        <li><a href="/deg_portal/logout/" style="font-size: 20px !important;"><span
+              class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </ul>
     </div>
   </nav>
 
-<!-- Modal -info -->
-<div class="container">
-<div id="modal-3" class="modal" data-modal-effect="slide-top">
-  <div class="modal-content">
-    <h2 class="fs-title">Instructions for filling up the application form</h2>
-    <br>
-    <ol style="text-align: left ; font-size: 15px;">
-      <li> All fields are mandatory. In case any field is not applicable then please put ‘NA’.</li>
-      <li> Personal details must be filled as per your passport.</li>
-      <li> The application will require the following scanned documents in PDF format (size less than 500 kB). Keep the scanned documents ready before you proceed. 
-        Documents once uploaded cannot be changed.
-        <ul style="text-align: left">
-          <li>Passport </li>
-          <li>Academic Transcripts</li>
-          <li>Curriculum Vitae</li>
-          <li>Statement of Research Interest (mandatory for Doctoral Applications)</li> 
-          <li>Scholarship details (if applicable)</li> 
-          <li>GATE Scorecard (if applicable)</li> 
-          <li>Work Experience Details (if applicable)</li> 
-        </ul>
-      </li>
-      <li>You will also have to upload your photo and signature in jpg format (size less than 250 kB).</li> 
-      <li>You can click on the 'Save' button in order to save your application and continue at a later stage. </li> 
-      <li>The application will be considered as complete on clicking the 'Apply' button. You will not be able to make any changes after submitting.</li>
-      <li>The application fee is INR 500. After submitting the application, you will be able to make the payment through a payment gateway. After successful payment, 
-        you will be provided with an option to download the payment details in PDF format. Download it and keep it with you for your reference.</li>  
-      <li>Please note that the application fee is exempted for those applicants applying through ICCR/EDCIL(SII).</li>
-    </ol>
-    <input type="button" style="margin-bottom: 0;" name="next" class="next action-button modal-close" value="Got it!">
+  <!-- Modal -info -->
+  <div class="container">
+    <div id="modal-3" class="modal" data-modal-effect="slide-top">
+      <div class="modal-content">
+        <h2 class="fs-title">Instructions for filling up the application form</h2>
+        <br>
+        <ol style="text-align: left ; font-size: 15px;">
+          <li> All fields are mandatory. In case any field is not applicable then please put ‘NA’.</li>
+          <li> Personal details must be filled as per your passport.</li>
+          <li> The application will require the following scanned documents in PDF format (size less than 500 kB). Keep
+            the scanned documents ready before you proceed.
+            Documents once uploaded cannot be changed.
+            <ul style="text-align: left">
+              <li>Passport </li>
+              <li>Academic Transcripts</li>
+              <li>Curriculum Vitae</li>
+              <li>Statement of Research Interest (mandatory for Doctoral Applications)</li>
+              <li>Scholarship details (if applicable)</li>
+              <li>GATE Scorecard (if applicable)</li>
+              <li>Work Experience Details (if applicable)</li>
+            </ul>
+          </li>
+          <li>You will also have to upload your photo and signature in jpg format (size less than 250 kB).</li>
+          <li>You can click on the 'Save' button in order to save your application and continue at a later stage. </li>
+          <li>The application will be considered as complete on clicking the 'Apply' button. You will not be able to
+            make any changes after submitting.</li>
+          <li>The application fee is INR 500. After submitting the application, you will be able to make the payment
+            through a payment gateway. After successful payment,
+            you will be provided with an option to download the payment details in PDF format. Download it and keep it
+            with you for your reference.</li>
+          <li>Please note that the application fee is exempted for those applicants applying through ICCR/EDCIL(SII).
+          </li>
+        </ol>
+        <input type="button" style="margin-bottom: 0;" name="next" class="next action-button modal-close"
+          value="Got it!">
+      </div>
+    </div>
   </div>
-</div>
-</div>
 
-<form class="steps" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="">
-  <ul id="progressbar">
-    <li class="active">User Information</li>
-    <li>Aquisition</li>
-    <li>Cultivation</li>
-    <li>Cultivation2</li>
-    <li>Retention</li>
-  </ul>
+  <div class="alert alert-success d-none flex-row justify-content-between p-3" id="message-block">
+    <p class="m-0" id="message"></p><i id="message-hide" class="fa fa-times"></i>
+  </div>
+
+  <form class="steps" id="application-form" action="" accept-charset="UTF-8" enctype="multipart/form-data"
+    novalidate="">
+    <ul id="progressbar">
+      <li class="active">User Information</li>
+      <li>Aquisition</li>
+      <li>Cultivation</li>
+      <li>Cultivation2</li>
+      <li>Retention</li>
+    </ul>
 
 
 
-  <!-- USER INFORMATION FIELD SET --> 
-  <fieldset>
-    <div class="progress-circle p20">
-      <span>1/5</span>
-      <div class="left-half-clipper">
-        <div class="first50-bar"></div>
-        <div class="value-bar"></div>
+    <!-- USER INFORMATION FIELD SET -->
+    <fieldset>
+      <div class="progress-circle p20">
+        <span>1/5</span>
+        <div class="left-half-clipper">
+          <div class="first50-bar"></div>
+          <div class="value-bar"></div>
+        </div>
       </div>
-    </div>
-    <h2 class="fs-title">Basic Information</h2>
-    <h3 class="fs-subtitle">We just need some basic information to begin your scoring</h3>
-    <!-- Begin What's Your First Name Field -->
-        <div class="hs_firstname field hs-form-field">
-        
-          <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What's your First Name? *</label>
+      <h2 class="fs-title">Basic Information</h2>
+      <h3 class="fs-subtitle">We just need some basic information to begin your scoring</h3>
+      <!-- Begin What's Your First Name Field -->
+      <div class="hs_firstname field hs-form-field">
 
-          <input id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="firstname" required="required" type="text" value="" placeholder="" data-rule-required="true" data-msg-required="Please include your first name" >
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-        </div>
-    <!-- End What's Your First Name Field -->
+        <label for="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What's your First Name? *</label>
 
-    <!-- Begin What's Your Email Field -->
-        <div class="hs_email field hs-form-field">
-        
-          <label for="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What's your E-mail Address? *</label>
-
-          <input id="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="email" required="required" type="email" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid email address." >
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-        </div>
-    <!-- End What's Your Email Field -->
-
-    <!-- Begin Total Number of Constituents in Your Database Field -->
-        <div class="hs_email field hs-form-field hs_total_number_of_constituents_in_your_database">
-        
-          <label for="edit-submitted-constituent-base-total-constituents total_number_of_constituents_in_your_database-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">What's the Total Number of Constituents in your Database? *</label>
-
-          <input id="edit-submitted-constituent-base-total-constituents" class="form-text hs-input" name="total_number_of_constituents_in_your_database" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number" >
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-        </div>
-
-    <!-- End Total Number of Constituents in Your Database Field -->
-    <input type="button" data-page="1" name="next" class="next action-button" value="Next" />
-    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> Instructions</div>
-  </fieldset>
-
-
-
-  <!-- ACQUISITION FIELD SET -->  
-  <fieldset>
-    <div class="progress-circle p40">
-      <span>2/5</span>
-      <div class="left-half-clipper">
-        <div class="first50-bar"></div>
-        <div class="value-bar"></div>
+        <input id="firstname-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="firstname" required="required" type="text"
+          value="" placeholder="" data-rule-required="true" data-msg-required="Please include your first name">
+        <span class="error1" style="display: none;">
+          <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
       </div>
-    </div>
-    <h2 class="fs-title">Acquisition of Donors</h2>
-    <h3 class="fs-subtitle">How have you been doing in acquiring donors?</h3>
+      <!-- End What's Your First Name Field -->
+
+      <!-- Begin What's Your Email Field -->
+      <div class="hs_email field hs-form-field">
+
+        <label for="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What's your E-mail Address? *</label>
+
+        <input id="email-99a6d115-5e68-4355-a7d0-529207feb0b3_2983" name="email" required="required" type="email"
+          value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid email address.">
+        <span class="error1" style="display: none;">
+          <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+      </div>
+      <!-- End What's Your Email Field -->
+
+      <!-- Begin Total Number of Constituents in Your Database Field -->
+      <div class="hs_email field hs-form-field hs_total_number_of_constituents_in_your_database">
+
+        <label
+          for="edit-submitted-constituent-base-total-constituents total_number_of_constituents_in_your_database-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">What's
+          the Total Number of Constituents in your Database? *</label>
+
+        <input id="edit-submitted-constituent-base-total-constituents" class="form-text hs-input"
+          name="total_number_of_constituents_in_your_database" required="required" size="60" maxlength="128"
+          type="number" value="" placeholder="" data-rule-required="true"
+          data-msg-required="Please enter a valid number">
+        <span class="error1" style="display: none;">
+          <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+      </div>
+
+      <!-- End Total Number of Constituents in Your Database Field -->
+      <input type="button" data-page="1" name="next" class="next action-button" value="Next" />
+      <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i
+          class="question-log fa fa-question-circle"></i> Instructions</div>
+    </fieldset>
+
+
+
+    <!-- ACQUISITION FIELD SET -->
+    <fieldset>
+      <div class="progress-circle p40">
+        <span>2/5</span>
+        <div class="left-half-clipper">
+          <div class="first50-bar"></div>
+          <div class="value-bar"></div>
+        </div>
+      </div>
+      <h2 class="fs-title">Acquisition of Donors</h2>
+      <h3 class="fs-subtitle">How have you been doing in acquiring donors?</h3>
       <!-- Begin Total Number of Donors in Year 1 Field -->
-        <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field" id="webform-component-acquisition--amount-1">
-        
-          <label for="edit-submitted-acquisition-amount-1 total_number_of_donors_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">What was your number of total donors in year 1? *</label>
+      <div
+        class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_1 field hs-form-field"
+        id="webform-component-acquisition--amount-1">
 
-          <input id="edit-submitted-acquisition-amount-1" class="form-text hs-input" name="total_number_of_donors_in_year_1" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-        </div>
+        <label
+          for="edit-submitted-acquisition-amount-1 total_number_of_donors_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">What
+          was your number of total donors in year 1? *</label>
+
+        <input id="edit-submitted-acquisition-amount-1" class="form-text hs-input"
+          name="total_number_of_donors_in_year_1" required="required" size="60" maxlength="128" type="number" value=""
+          placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
+        <span class="error1" style="display: none;">
+          <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+      </div>
       <!-- End Total Number of Donors in Year 1 Field -->
 
       <!-- Begin Total Number of Donors in Year 2 Field -->
-        <div class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field" id="webform-component-acquisition--amount-2">
-        
-          <label for="edit-submitted-acquisition-amount-2 total_number_of_donors_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">What was your number of total donors in year 2? *</label>
+      <div
+        class="form-item webform-component webform-component-textfield hs_total_number_of_donors_in_year_2 field hs-form-field"
+        id="webform-component-acquisition--amount-2">
 
-          <input id="edit-submitted-acquisition-amount-2" class="form-text hs-input" name="total_number_of_donors_in_year_2" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-        </div>
-        <!-- End Total Number of Donors in Year 2 Field -->
+        <label
+          for="edit-submitted-acquisition-amount-2 total_number_of_donors_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">What
+          was your number of total donors in year 2? *</label>
+
+        <input id="edit-submitted-acquisition-amount-2" class="form-text hs-input"
+          name="total_number_of_donors_in_year_2" required="required" size="60" maxlength="128" type="number" value=""
+          placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
+        <span class="error1" style="display: none;">
+          <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+      </div>
+      <!-- End Total Number of Donors in Year 2 Field -->
 
       <!-- Begin Calc of Total Number of Donors Fields -->
       <!-- THIS FIELD IS NOT EDITABLE | GRAYED OUT -->
-        <div class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field">
-        
-          <label for="edit-submitted-acquisition-percent-change total_donor_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">Total Donors Percent Change</label>
+      <div
+        class="form-item webform-component webform-component-textfield webform-container-inline hs_total_donor_percent_change field hs-form-field">
 
-          <input id="edit-submitted-acquisition-percent-change" class="form-text hs-input" name="total_donor_percent_change" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
-        </div>
-        <!-- End Calc of Total Number of Donors Fields -->
-    <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
-    <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
-    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
-  </fieldset>
+        <label
+          for="edit-submitted-acquisition-percent-change total_donor_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_6344">Total
+          Donors Percent Change</label>
 
-
-
-  <!-- Cultivation FIELD SET -->  
-  <fieldset>
-    <div class="progress-circle over50 p60">
-      <span>3/5</span>
-      <div class="left-half-clipper">
-        <div class="first50-bar"></div>
-        <div class="value-bar"></div>
+        <input id="edit-submitted-acquisition-percent-change" class="form-text hs-input"
+          name="total_donor_percent_change" readonly="readonly" size="60" maxlength="128" type="text" value=""
+          placeholder="0">
       </div>
-    </div>
-    <h2 class="fs-title">Cultivation and Nurturing your Donors</h2>
-    <h3 class="fs-subtitle">How have you been nurturing donors to get better donations?</h3>
-      <!-- Begin Average Gift Size in Year 1 Field -->
-        <div class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_1 field hs-form-field" id="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">
-        
-          <label for="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">What was your average gift size in year 1? *</label>
+      <!-- End Calc of Total Number of Donors Fields -->
+      <input type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="2" name="next" class="next action-button" value="Next" />
+      <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
+    </fieldset>
 
-          <input id="edit-submitted-cultivation-amount-1" class="form-text hs-input" name="average_gift_size_in_year_1" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
+
+
+    <!-- Cultivation FIELD SET -->
+    <fieldset>
+      <div class="progress-circle over50 p60">
+        <span>3/5</span>
+        <div class="left-half-clipper">
+          <div class="first50-bar"></div>
+          <div class="value-bar"></div>
         </div>
-        <!-- End Average Gift Size in Year 1 Field -->
+      </div>
+      <h2 class="fs-title">Cultivation and Nurturing your Donors</h2>
+      <h3 class="fs-subtitle">How have you been nurturing donors to get better donations?</h3>
+      <!-- Begin Average Gift Size in Year 1 Field -->
+      <div
+        class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_1 field hs-form-field"
+        id="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">
+
+        <label
+          for="edit-submitted-cultivation-amount-1 average_gift_size_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">What
+          was your average gift size in year 1? *</label>
+
+        <input id="edit-submitted-cultivation-amount-1" class="form-text hs-input" name="average_gift_size_in_year_1"
+          required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true"
+          data-msg-required="Please enter a valid number">
+        <span class="error1" style="display: none;">
+          <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+      </div>
+      <!-- End Average Gift Size in Year 1 Field -->
 
       <!-- Begin Average Gift Size in Year 2 Field -->
-        <div class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_2 field hs-form-field" id="webform-component-cultivation--amount-2">
-        
-          <label for="edit-submitted-cultivation-amount-2 average_gift_size_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">What was your average gift size in year 2? *</label>
+      <div
+        class="form-item webform-component webform-component-textfield hs_average_gift_size_in_year_2 field hs-form-field"
+        id="webform-component-cultivation--amount-2">
 
-          <input id="edit-submitted-cultivation-amount-2" class="form-text hs-input" name="average_gift_size_in_year_2" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-        </div>
-        <!-- End Average Gift Size in Year 2 Field -->
+        <label
+          for="edit-submitted-cultivation-amount-2 average_gift_size_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">What
+          was your average gift size in year 2? *</label>
+
+        <input id="edit-submitted-cultivation-amount-2" class="form-text hs-input" name="average_gift_size_in_year_2"
+          required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true"
+          data-msg-required="Please enter a valid number">
+        <span class="error1" style="display: none;">
+          <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+      </div>
+      <!-- End Average Gift Size in Year 2 Field -->
 
       <!-- Begin Average Gift Size Perchent Change Field -->
       <!-- THIS FIELD IS NOT EDITABLE | GRAYED OUT -->
-        <div class="form-item webform-component webform-component-textfield webform-container-inline hs_average_gift_size_percent_change field hs-form-field" id="webform-component-cultivation--percent-change1">
-        
-          <label for="edit-submitted-cultivation-percent-change1 average_gift_size_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">Average Gift Size Percent Change</label>
+      <div
+        class="form-item webform-component webform-component-textfield webform-container-inline hs_average_gift_size_percent_change field hs-form-field"
+        id="webform-component-cultivation--percent-change1">
 
-          <input id="edit-submitted-cultivation-percent-change1" class="form-text hs-input" name="average_gift_size_percent_change" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
-        </div>
-        <!-- End Average Gift Size Perchent Change Field -->
-    <input type="button" data-page="3" name="previous" class="previous action-button" value="Previous" />
-    <input type="button" data-page="3" name="next" class="next action-button" value="Next" />
-    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
-  </fieldset>
+        <label
+          for="edit-submitted-cultivation-percent-change1 average_gift_size_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_3256">Average
+          Gift Size Percent Change</label>
 
-
-
-  <!-- Cultivation2 FIELD SET --> 
-  <fieldset>
-    <div class="progress-circle over50 p80">
-      <span>4/5</span>
-      <div class="left-half-clipper">
-        <div class="first50-bar"></div>
-        <div class="value-bar"></div>
+        <input id="edit-submitted-cultivation-percent-change1" class="form-text hs-input"
+          name="average_gift_size_percent_change" readonly="readonly" size="60" maxlength="128" type="text" value=""
+          placeholder="0">
       </div>
-    </div>
-    <h2 class="fs-title">Total Cultivation in Donation</h2>
-    <h3 class="fs-subtitle">Let's talk about your donations as a whole</h3>
-              <!-- Begin Total Giving In Year 1 Field -->
-        <div class="form-item webform-component webform-component-textfield" id="webform-component-cultivation--amount-3 hs_total_giving_in_year_1 field hs-form-field">
-        
-          <label for=" edit-submitted-cultivation-amount-3 total_giving_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">What was your total giving in Year 1? *</label>
+      <!-- End Average Gift Size Perchent Change Field -->
+      <input type="button" data-page="3" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="3" name="next" class="next action-button" value="Next" />
+      <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
+    </fieldset>
 
-          <input id="edit-submitted-cultivation-amount-3" class="form-text hs-input" name="total_giving_in_year_1" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
+
+
+    <!-- Cultivation2 FIELD SET -->
+    <fieldset>
+      <div class="progress-circle over50 p80">
+        <span>4/5</span>
+        <div class="left-half-clipper">
+          <div class="first50-bar"></div>
+          <div class="value-bar"></div>
         </div>
-        <!-- End Total Giving In Year 1 Field -->
+      </div>
+      <h2 class="fs-title">Total Cultivation in Donation</h2>
+      <h3 class="fs-subtitle">Let's talk about your donations as a whole</h3>
+      <!-- Begin Total Giving In Year 1 Field -->
+      <div class="form-item webform-component webform-component-textfield"
+        id="webform-component-cultivation--amount-3 hs_total_giving_in_year_1 field hs-form-field">
+
+        <label
+          for=" edit-submitted-cultivation-amount-3 total_giving_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">What
+          was your total giving in Year 1? *</label>
+
+        <input id="edit-submitted-cultivation-amount-3" class="form-text hs-input" name="total_giving_in_year_1"
+          required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true"
+          data-msg-required="Please enter a valid number">
+        <span class="error1" style="display: none;">
+          <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+      </div>
+      <!-- End Total Giving In Year 1 Field -->
 
       <!-- Begin Total Giving In Year 2 Field -->
-        <div class="form-item webform-component webform-component-textfield hs_total_giving_in_year_2 field hs-form-field" id="webform-component-cultivation--amount-4"> 
-        
-          <label for=" edit-submitted-cultivation-amount-4 total_giving_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">What was your total giving in Year 2? *</label>
+      <div class="form-item webform-component webform-component-textfield hs_total_giving_in_year_2 field hs-form-field"
+        id="webform-component-cultivation--amount-4">
 
-          <input id="edit-submitted-cultivation-amount-4" class="form-text hs-input" name="total_giving_in_year_2" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
+        <label
+          for=" edit-submitted-cultivation-amount-4 total_giving_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">What
+          was your total giving in Year 2? *</label>
+
+        <input id="edit-submitted-cultivation-amount-4" class="form-text hs-input" name="total_giving_in_year_2"
+          required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true"
+          data-msg-required="Please enter a valid number">
         <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-        </div>
-        
-        <!-- End Total Giving In Year 2 Field -->
+          <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+      </div>
+
+      <!-- End Total Giving In Year 2 Field -->
 
       <!-- Begin Average Gift Size Percent Change Field 2 -->
       <!-- THIS FIELD IS NOT EDITABLE | GRAYED OUT -->
-        <div class="form-item webform-component webform-component-textfield webform-container-inline hs_total_giving_percent_change field hs-form-field" id="webform-component-cultivation--percent-change2">
+      <div
+        class="form-item webform-component webform-component-textfield webform-container-inline hs_total_giving_percent_change field hs-form-field"
+        id="webform-component-cultivation--percent-change2">
 
-          <label for=" edit-submitted-cultivation-percent-change2 total_giving_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">Average Gift Size Percent Change</label>
+        <label
+          for=" edit-submitted-cultivation-percent-change2 total_giving_percent_change-99a6d115-5e68-4355-a7d0-529207feb0b3_4902">Average
+          Gift Size Percent Change</label>
 
-          <input id="edit-submitted-cultivation-percent-change2" class="form-text hs-input" name="total_giving_percent_change" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
-        </div>
-        <!-- End Average Gift Size Percent Change Field 2 -->
-    <input type="button" data-page="4" name="previous" class="previous action-button" value="Previous" />
-    <input type="button" data-page="4" name="next" class="next action-button" value="Next" />
-    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
-  </fieldset>
-
-
-
-  <!-- RETENTION FIELD SET -->  
-  <fieldset>
-    <div class="progress-circle over50 p100">
-      <span>5/5</span>
-      <div class="left-half-clipper">
-        <div class="first50-bar"></div>
-        <div class="value-bar"></div>
+        <input id="edit-submitted-cultivation-percent-change2" class="form-text hs-input"
+          name="total_giving_percent_change" readonly="readonly" size="60" maxlength="128" type="text" value=""
+          placeholder="0">
       </div>
-    </div>
-    <h2 class="fs-title">Retention of your donors</h2>
-    <h3 class="fs-subtitle">How long can you keep your donors and their donations?</h3>
-        <!-- Begin Total Number of Donors Who Gave in Year 1 Field -->
-          <div class="form-item webform-component webform-component-textfield hs_number_of_donors_in_year_1 field hs-form-field" id="webform-component-retention--amount-1"> 
-        
-          <label for=" edit-submitted-retention-amount-1 number_of_donors_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What was your total number of donors who gave in year 1? *</label>
-
-          <input id="edit-submitted-retention-amount-1" class="form-text hs-input" name="number_of_donors_in_year_1" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-          </div>
-        <!-- End Total Number of Donors Who Gave in Year 1 Field-->
+      <!-- End Average Gift Size Percent Change Field 2 -->
+      <input type="button" data-page="4" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" data-page="4" name="next" class="next action-button" value="Next" />
+      <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
+    </fieldset>
 
 
-        <!-- Begin Total Number of Donors Who Gave in Year 1 and Year 2 Field -->
-          <div class="form-item webform-component webform-component-textfield" id="webform-component-retention--amount-2 hs_number_of_year_1_donors_who_also_gave_in_year_2 field hs-form-field">
-        
-          <label for=" edit-submitted-retention-amount-2 number_of_year_1_donors_who_also_gave_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What was your total number of donors who gave in year 1 that also gave in year 2? *</label>
 
-          <input id="edit-submitted-retention-amount-2" class="form-text hs-input" name="number_of_year_1_donors_who_also_gave_in_year_2" required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true" data-msg-required="Please enter a valid number">
-          
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-          </div>
-        <!-- End Total Number of Donors Who Gave in Year 1 and Year 2 Field -->
+    <!-- RETENTION FIELD SET -->
+    <fieldset>
+      <div class="progress-circle over50 p100">
+        <span>5/5</span>
+        <div class="left-half-clipper">
+          <div class="first50-bar"></div>
+          <div class="value-bar"></div>
+        </div>
+      </div>
+      <h2 class="fs-title">Retention of your donors</h2>
+      <h3 class="fs-subtitle">How long can you keep your donors and their donations?</h3>
+      <!-- Begin Total Number of Donors Who Gave in Year 1 Field -->
+      <div
+        class="form-item webform-component webform-component-textfield hs_number_of_donors_in_year_1 field hs-form-field"
+        id="webform-component-retention--amount-1">
 
-        <!-- Begin Retention Rate Percent -->
-          <div class="form-item webform-component webform-component-textfield" id="webform-component-retention--percent-change field hs-form-field">
-        
-          <label for="edit-submitted-retention-percent-change">Retention Rate</label>
+        <label
+          for=" edit-submitted-retention-amount-1 number_of_donors_in_year_1-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What
+          was your total number of donors who gave in year 1? *</label>
 
-         <input id="edit-submitted-retention-percent-change" class="form-text hs-input" name="retention_rate_percent" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
-          
-          <span class="error1" style="display: none;">
-              <i class="error-log fa fa-exclamation-triangle"></i>
-          </span>
-          </div>
+        <input id="edit-submitted-retention-amount-1" class="form-text hs-input" name="number_of_donors_in_year_1"
+          required="required" size="60" maxlength="128" type="number" value="" placeholder="" data-rule-required="true"
+          data-msg-required="Please enter a valid number">
+        <span class="error1" style="display: none;">
+          <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+      </div>
+      <!-- End Total Number of Donors Who Gave in Year 1 Field-->
 
-        <!-- End Retention Rate Percent -->
+
+      <!-- Begin Total Number of Donors Who Gave in Year 1 and Year 2 Field -->
+      <div class="form-item webform-component webform-component-textfield"
+        id="webform-component-retention--amount-2 hs_number_of_year_1_donors_who_also_gave_in_year_2 field hs-form-field">
+
+        <label
+          for=" edit-submitted-retention-amount-2 number_of_year_1_donors_who_also_gave_in_year_2-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">What
+          was your total number of donors who gave in year 1 that also gave in year 2? *</label>
+
+        <input id="edit-submitted-retention-amount-2" class="form-text hs-input"
+          name="number_of_year_1_donors_who_also_gave_in_year_2" required="required" size="60" maxlength="128"
+          type="number" value="" placeholder="" data-rule-required="true"
+          data-msg-required="Please enter a valid number">
+
+        <span class="error1" style="display: none;">
+          <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+      </div>
+      <!-- End Total Number of Donors Who Gave in Year 1 and Year 2 Field -->
+
+      <!-- Begin Retention Rate Percent -->
+      <div class="form-item webform-component webform-component-textfield"
+        id="webform-component-retention--percent-change field hs-form-field">
+
+        <label for="edit-submitted-retention-percent-change">Retention Rate</label>
+
+        <input id="edit-submitted-retention-percent-change" class="form-text hs-input" name="retention_rate_percent"
+          readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
+
+        <span class="error1" style="display: none;">
+          <i class="error-log fa fa-exclamation-triangle"></i>
+        </span>
+      </div>
+
+      <!-- End Retention Rate Percent -->
 
 
-        <!-- Begin Final Calc -->
-          <div class="form-item webform-component webform-component-textfield hs_fundraising_400_index field hs-form-field" id="webform-component-final-grade--grade">
+      <!-- Begin Final Calc -->
+      <div class="form-item webform-component webform-component-textfield hs_fundraising_400_index field hs-form-field"
+        id="webform-component-final-grade--grade">
 
-          <label for=" fundraising_400_index-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">Fundraising 400 Index Score</label>
+        <label for=" fundraising_400_index-99a6d115-5e68-4355-a7d0-529207feb0b3_2983">Fundraising 400 Index
+          Score</label>
 
-          <input id="edit-submitted-final-grade-grade" class="form-text hs-input" name="fundraising_400_index" readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
-          </div>
-        <!-- End Final Calc -->
-    <input type="button" data-page="5" name="previous" class="previous action-button" value="Previous" />
-    <input id="submit" class="hs-button primary large action-button submit" type="submit" value="Submit">
-    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
-</fieldset>
+        <input id="edit-submitted-final-grade-grade" class="form-text hs-input" name="fundraising_400_index"
+          readonly="readonly" size="60" maxlength="128" type="text" value="" placeholder="0">
+      </div>
+      <!-- End Final Calc -->
+      <input type="button" data-page="5" name="previous" class="previous action-button" value="Previous" />
+      <input id="submit" class="hs-button primary large action-button submit" type="submit" value="Submit">
+      <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
+    </fieldset>
 
-  <fieldset>
-    <h2 class="fs-title">It's on the way!</h2>
-    <h3 class="fs-subtitle">Thank you for trying out our marketing grader, please go check your email for your fundraising report card and some helpful tips to improve it!</h3>
-    <input type="button" data-page="5" name="previous" class="previous action-button" value="Previous" />
-    <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
-  </fieldset>
-</form>
-<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+    <fieldset>
+      <h2 class="fs-title">It's on the way!</h2>
+      <h3 class="fs-subtitle">Thank you for trying out our marketing grader, please go check your email for your
+        fundraising report card and some helpful tips to improve it!</h3>
+      <input type="button" data-page="5" name="previous" class="previous action-button" value="Previous" />
+      <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3">What Is This?</div>
+    </fieldset>
+  </form>
+  <script
+    src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
-<script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js'></script>
-<script src="homepage.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+  <script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js'></script>
+  <script src="homepage.js"></script>
+  <script>
+    function save_form() {
+      $.ajax({
+        url: 'https://international.iitkgp.ac.in/deg_portal/application/0',
+        type: 'POST',
+        data: new FormData(jQuery('form')[0]),
+        dataType: 'multipart/form-data',
+        processData: false,
+        contentType: false,
+        success: function (data, status, xhr) {
+          $('#message').html('Data Saved..!');
+          $("#message-block").removeClass("d-none");
+          $("#message-block").addClass("d-flex");
+        },
+        error: function (data, status, xhr) {
+          $('#message').html(xhr + '. Please try again after sometime.');
+          $("#message-block").removeClass("d-none alert-success");
+          $("#message-block").addClass("d-flex alert-danger");
+        },
+      });
+    }
+    $('#message-hide').click(function (e) {
+      $("#message-block").removeClass("d-flex");
+      $("#message-block").addClass("d-none");
+    });
+
+  </script>
 </body>
+
 </html>
