@@ -450,6 +450,13 @@
   <script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js'></script>
   <script src="homepage.js"></script>
   <script>
+    var next_buttons = document.getElementsByClassName('next')
+    for (let button of next_buttons) {
+      button.addEventListener("click", function(e){
+        console.log('clicked')
+        save_form();
+      });
+    }
     function save_form() {
       $.ajax({
         url: 'https://international.iitkgp.ac.in/deg_portal/application/0',
@@ -460,11 +467,11 @@
         contentType: false,
         success: function (data, status, xhr) {
           $('#message').html('Data Saved..!');
-          $("#message-block").removeClass("d-none");
-          $("#message-block").addClass("d-flex");
+          $("#message-block").removeClass("d-none alert-danger");
+          $("#message-block").addClass("d-flex alert-success");
         },
         error: function (data, status, xhr) {
-          $('#message').html(xhr + '. Please try again after sometime.');
+          $('#message').html(xhr + ". We couldn't save your form.");
           $("#message-block").removeClass("d-none alert-success");
           $("#message-block").addClass("d-flex alert-danger");
         },
