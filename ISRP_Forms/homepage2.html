@@ -1,0 +1,2584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="homepage.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Actor' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Advent Pro' rel = 'stylesheet'>
+    <link href="css-circular-prog-bar.css" rel="stylesheet">
+    <title>Application Form | International Relations </title>
+    <link rel="icon" type="image/png" href="/static/website/img/iitkgp_logo.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <link href="/static/css/portal_style.css" rel="stylesheet">
+    <style type="text/css">
+        .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        }
+
+        .switch input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+        }
+
+        .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+
+        .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+
+        input:checked + .slider {
+        background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+        .slider.round:before {
+            border-radius: 50%;
+        }
+        .panel-title{
+            font-weight:bold;
+        }
+
+        .control-label { 
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .panel-default{
+            border-color: #ddd
+        }
+        .panel-default>.panel-heading{
+            color: white;
+            background-color:/*#f5f5f5;*/#566573;
+            border-color:#ddd
+        }
+        .tablehdr{
+            font-size: 13px;
+            text-align: center;
+            background-color:#f5f5f5;
+        }
+        .tablecntnt {
+            display: block;
+            width: 100%;
+            padding: 5px 20px;
+            font-size: 1em;
+            border-radius: 3px;
+            outline: none;
+            border: 1px solid #ccc;
+        }
+
+        #status {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        #status td, #status th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #status tr:nth-child(even){background-color: #f2f2f2;}
+
+        #status tr:hover {background-color: #ddd;}
+
+        #status th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #5DADE2;
+            color: white;
+            text-align:center;
+        }
+
+        /*basic reset*/
+        * {margin: 0; padding: 0;}
+
+        html {
+            height: 100%;
+        /*Image only BG fallback*/
+        }
+
+        body {
+            font-family: montserrat, arial, verdana;
+            width: 100%;
+            overflow-x: hidden;
+            background-color: #e9e9e9 !important;
+        }
+        /*form styles*/
+        .steps {
+            width: 1395px;
+            height: 700px;
+            margin:110px auto;
+            position: relative;
+        }
+
+        .steps fieldset {
+            background: white;
+            border: 0 none;
+            border-radius: 3px;
+            box-shadow: 0 17px 41px -21px rgb(0, 0, 0);
+            padding: 20px 30px;
+            border-top: 9px solid #566573;
+            box-sizing: border-box;
+            width: 80%;
+            margin: 0 10%;
+            
+        /*stacking fieldsets above each other*/
+            position: absolute;
+        }
+        /*Hide all except first fieldset*/
+        .steps fieldset:not(:first-of-type) {
+            display: none;
+        }
+        /*inputs*/
+        .steps label{
+            color: #333333;
+            text-align: left !important;
+            font-size: 15px;
+            font-weight: 200;
+            padding-bottom: 17px;
+            padding-top: 2px;
+            display: inline-block;
+        }
+
+
+        .steps input, .steps textarea {
+            outline: none;
+            display: block;
+            width: 100%;
+            margin: 0 0 20px;
+            padding: 10px 15px;
+            border: 1px solid #d9d9d9;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            color: #837E7E;
+            font-family: "Roboto";
+            -webktit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            font-size: 14px;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-transition: all 0.3s linear 0s;
+            -moz-transition: all 0.3s linear 0s;
+            -ms-transition: all 0.3s linear 0s;
+            -o-transition: all 0.3s linear 0s;
+            transition: all 0.3s linear 0s;
+        }
+
+        .steps input:focus, .steps textarea:focus{
+            color: #333333;
+            border: 1px solid #566573;
+        }
+
+        .error1{
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            -moz-box-shadow: 0 0 0 transparent;
+            -webkit-box-shadow: 0 0 0 transparent;
+            box-shadow: 0 0 0 transparent;
+            position: absolute;
+            left: 525px;
+            margin-top: -58px;
+            padding: 0 10px;
+            height: 39px;
+            display: block;
+            color: #ffffff;
+            background: #e62163;
+            border: 0;
+            font: 14px Corbel, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", "Bitstream Vera Sans", "Liberation Sans", Verdana, "Verdana Ref", sans-serif;
+            line-height: 39px;
+            white-space: nowrap;
+        }
+
+        .error1:before{
+            width: 0;
+            height: 0;
+            left: -8px;
+            top: 14px;
+            content: '';
+            position: absolute;
+            border-top: 6px solid transparent;
+            border-right: 8px solid #e62163;
+            border-bottom: 6px solid transparent;
+        }
+
+        .error-log{
+            margin: 5px 5px 5px 0;
+            font-size: 19px;
+            position: relative;
+            bottom: -2px;
+        }
+
+        .question-log {
+            margin: 5px 1px 5px 0;
+            font-size: 15px;
+            position: relative;
+        }
+
+        /*buttons*/
+        .steps .action-button, .action-button {
+            width: 100px !important;
+            background: #566573;
+            font-weight: bold;
+            color: white;
+            border: 0 none;
+            border-radius: 1px;
+            cursor: pointer;
+            padding: 10px 5px;
+            margin: 10px auto;
+            -webkit-transition: all 0.3s linear 0s;
+            -moz-transition: all 0.3s linear 0s;
+            -ms-transition: all 0.3s linear 0s;
+            -o-transition: all 0.3s linear 0s;
+            transition: all 0.3s linear 0s;
+            display: block;
+        }
+
+        .steps .next, .steps .submit{
+            float: right;
+        }
+
+        .next{
+            color: #566573 !important;
+            border-radius: 5px !important;
+            border: #566573 solid 1px !important;
+            background-color: white !important;
+            box-shadow: rgba(0, 0, 0, 0.363) 0px 0px 10px;
+        }
+
+        .next:hover {
+            background-color: #566573 !important;
+            color: white !important;
+        }
+
+        .steps .previous{
+            float:left;
+        }
+
+        .previous{
+            color: #566573 !important;
+            border-radius: 5px !important;
+            border: #566573 solid 1px !important;
+            background-color: white !important;
+            box-shadow: rgba(0, 0, 0, 0.363) 0px 0px 10px;
+        }
+
+        .previous:hover {
+            background-color: #566573 !important;
+            color: white !important;
+        }
+
+        .steps .action-button:hover, .steps .action-button:focus, .action-button:hover, .action-button:focus {
+            background:#798591;;
+        }
+
+        .steps .explanation{
+            display: block;
+            clear: both;
+            width: 1116px;
+            background: #f2f2f2;
+            position: relative;
+            margin-left: -30px;
+            padding: 12px 0px;
+            margin-bottom: -10px;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+            top: 10px;
+            text-align: center;
+            color: #333333;
+            font-size: 12px;
+            font-weight: 200;
+            cursor:pointer;
+        }
+        .explanation{
+            color: #f2f2f2 !important;
+            background-color: #566573 !important;
+            transition: 0.3s;
+        }
+        .explanation:hover {
+            background-color: #f2f2f2 !important;
+            color: #566573 !important;
+        }
+
+        /*headings*/
+        .fs-title {
+            text-transform: uppercase;
+            margin: 0 0 5px;
+            line-height: 1;
+            color: #566573;
+            font-size: 18px;
+            font-weight: 400;
+            text-align:center;
+        }
+        .fs-subtitle {
+            font-weight: normal;
+            font-size: 13px;
+            color: #837E7E;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        /*progressbar*/
+        #progressbar {
+            margin-bottom: 30px;
+            overflow: hidden;
+        /*CSS counters to number the steps*/
+            counter-reset: step;
+            width:100%;
+            text-align: center;
+        }
+        #progressbar li {
+            list-style-type: none;
+            color: rgb(51, 51, 51);
+            text-transform: uppercase;
+            font-size: 9px;
+            width: 20%;
+            float: left;
+            position: relative;
+        }
+        #progressbar li:before {
+            content: counter(step);
+            counter-increment: step;
+            width: 20px;
+            line-height: 20px;
+            display: block;
+            font-size: 10px;
+            color: #333;
+            background: white;
+            border-radius: 3px;
+            margin: 0 auto 5px auto;
+        }
+        /*progressbar connectors*/
+        #progressbar li:after {
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: white;
+            position: absolute;
+            left: -50%;
+            top: 9px;
+            z-index: -1; /*put it behind the numbers*/
+        }
+        #progressbar li:first-child:after {
+        /*connector not needed before the first step*/
+            content: none; 
+        }
+        /*marking active/completed steps green*/
+        /*The number of the step and the connector before it = green*/
+        #progressbar li.active:before,  #progressbar li.active:after{
+            background: #566573;
+            color: white;
+        }
+
+
+        /* my modal */
+
+        .modal p{
+            font-size: 15px;
+            font-weight: 100;
+            font-family: sans-serif;
+            color: #3C3B3B;
+            line-height: 21px;
+        }
+
+        .modal {
+            position: fixed;
+            top: 35% !important;
+            left: 50% !important;
+            width: 100%;
+            max-width: 630px;
+            min-width: 320px;
+            height: auto;
+            z-index: 2000;
+            visibility: hidden;
+            display: block !important;
+            overflow: visible !important;
+            -moz-backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .modal.modal-show {
+            visibility: visible;
+        }
+        .lt-ie9 .modal {
+            top: 0;
+            margin-left: -315px;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            position: relative;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 3px;
+        }
+
+        .modal-overlay {
+            background: #000000;
+            position: fixed;
+            visibility: hidden;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+            opacity: 0;
+            -moz-transition-property: visibility, opacity;
+            -o-transition-property: visibility, opacity;
+            -webkit-transition-property: visibility, opacity;
+            transition-property: visibility, opacity;
+            -moz-transition-delay: 0.5s, 0.1s;
+            -o-transition-delay: 0.5s, 0.1s;
+            -webkit-transition-delay: 0.5s, 0.1s;
+            transition-delay: 0.5s, 0.1s;
+            -moz-transition-duration: 0, 0.5s;
+            -o-transition-duration: 0, 0.5s;
+            -webkit-transition-duration: 0, 0.5s;
+            transition-duration: 0, 0.5s;
+        }
+        .modal-show .modal-overlay {
+            visibility: visible;
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+            opacity: 0.6;
+            -moz-transition: opacity 0.5s;
+            -o-transition: opacity 0.5s;
+            -webkit-transition: opacity 0.5s;
+            transition: opacity 0.5s;
+        }
+
+        /*slide*/
+        .modal[data-modal-effect|=slide] .modal-content {
+            filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+            opacity: 0;
+            -moz-transition: all 0.5s 0;
+            -o-transition: all 0.5s 0;
+            -webkit-transition: all 0.5s 0;
+            transition: all 0.5s 0;
+        }
+        .modal[data-modal-effect|=slide].modal-show .modal-content {
+            filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+            opacity: 1;
+            -moz-transition: all 0.5s 0.1s;
+            -o-transition: all 0.5s 0.1s;
+            -webkit-transition: all 0.5s;
+            -webkit-transition-delay: 0.1s;
+            transition: all 0.5s 0.1s;
+        }
+        .modal[data-modal-effect=slide-top] .modal-content {
+            -moz-transform: translateY(-300%);
+            -ms-transform: translateY(-300%);
+            -webkit-transform: translateY(-300%);
+            transform: translateY(-300%);
+        }
+        .modal[data-modal-effect=slide-top].modal-show .modal-content {
+            -moz-transform: translateY(0);
+            -ms-transform: translateY(0);
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+
+
+        /* RESPONSIVE */
+
+        /* moves error logs in tablet/smaller screens */
+
+        @media (max-width:1000px){
+        /*brings inputs down in size */
+            .steps input, .steps textarea {
+                outline: none;
+                display: block;
+                width: 100% !important;
+            }
+        /*brings errors in */
+            .error1 {
+                left: 345px;
+                margin-top: -58px;
+            }
+        }
+
+        @media (max-width:675px){
+        /*mobile phone: uncollapse all fields: remove progress bar*/
+            .steps {
+                width: 100%;
+                margin: 50px auto;
+                position: relative;
+            }
+
+            #progressbar{
+                display:none;
+            }
+
+            /*move error logs */
+            .error1 {
+                position: relative;
+                left: 0 !important;
+                margin-top: 24px;
+                top: -11px;
+            }
+
+            .error1:before {
+                width: 0;
+                height: 0;
+                left: 14px;
+                top: -14px;
+                content: '';
+                position: absolute;
+                border-left: 6px solid transparent;
+                border-bottom: 8px solid #e62163;
+                border-right: 6px solid transparent;
+            }
+
+            /*show hidden fieldsets */
+            .steps fieldset:not(:first-of-type) {
+                display: block;
+            }
+
+            .steps fieldset{
+                position:relative;
+                width: 100%;
+                margin:0 auto;
+                margin-top: 45px;
+            }
+
+            .steps .next, .steps .previous{
+                display:none;
+            }
+
+            .steps .explanation{
+                display:none;
+            }
+
+            .steps .submit {
+                float: right;
+                margin: 28px auto 10px;
+                width: 100% !important;
+            }
+        }
+
+        /* Info */
+        .info {
+            width: 300px;
+            margin: 35px auto;
+            text-align: center;
+            font-family: 'roboto', sans-serif;
+        }
+
+        .info h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 28px;
+            font-weight: 400;
+            color: #333333;
+            padding-bottom: 5px;
+
+        }
+        .info span {
+            color:#666666;
+            font-size: 13px;
+            margin-top:20px;
+        }
+        .info span a {
+            color: #666666;
+            text-decoration: none;
+        }
+        .info span .fa {
+            color: rgb(226, 168, 16);
+            font-size: 19px;
+            position: relative;
+            left: -2px;
+        }
+
+        .info span .spoilers {
+            color: #999999;
+            margin-top: 5px;
+            font-size: 10px;
+        }
+        .progress-circle {
+            left: 45%;
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative; /* so that children can be absolutely positioned */
+            padding: 0;
+            width: 5em;
+            height: 5em;
+            box-shadow: rgba(0, 0, 0, 0.658) 0px 0px 10px;
+            background-color: #c7c7c757; 
+            border-radius: 50%;
+            line-height: 5em;
+        }
+
+        .progress-circle:after{
+            border: none;
+            position: absolute;
+            top: 0.115em;
+            left: 0.12em;
+            text-align: center;
+            display: block;
+            border-radius: 50%;
+            width: 4.775em;
+            height: 4.775em;
+            background-color: white;
+            content: " ";
+        }
+        /* Text inside the control */
+        .progress-circle span {
+            position: absolute;
+            line-height: 4em;
+            width: 5em;
+            text-align: center;
+            display: block;
+            color: #53777A;
+            z-index: 2;
+        }
+        .left-half-clipper { 
+        /* a round circle */
+            border-radius: 50%;
+            width: 5em;
+            height: 5em;
+            position: absolute; /* needed for clipping */
+            clip: rect(0, 5em, 5em, 2.5em); /* clips the whole left half*/ 
+        }
+        /* when p>50, don't clip left half*/
+        .progress-circle.over50 .left-half-clipper {
+            clip: rect(auto,auto,auto,auto);
+        }
+        .value-bar {
+        /*This is an overlayed square, that is made round with the border radius,
+        then it is cut to display only the left half, then rotated clockwise
+        to escape the outer clipping path.*/ 
+            position: absolute; /*needed for clipping*/
+            clip: rect(0, 2.5em, 5em, 0);
+            width: 5em;
+            height: 5em;
+            border-radius: 50%;
+            border: 0.15em solid #566573; /*The border is 0.35 but making it larger removes visual artifacts */
+            /*background-color: #4D642D;*/ /* for debug */
+            box-sizing: border-box;
+        }
+        /* Progress bar filling the whole right half for values above 50% */
+        .progress-circle.over50 .first50-bar {
+        /*Progress bar for the first 50%, filling the whole right half*/
+            position: absolute; /*needed for clipping*/
+            clip: rect(0, 5em, 5em, 2.5em);
+            background-color: #566573;
+            border-radius: 50%;
+            width: 5em;
+            height: 5em;
+            border: 0.15em solid #566573;
+        }
+        .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+
+        .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+        }
+
+        input:checked + .slider {
+        background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+        border-radius: 34px;
+        }
+
+        .slider.round:before {
+        border-radius: 50%;
+        }
+        .progress-circle:not(.over50) .first50-bar{ display: none; }
+        /* Progress bar rotation position */
+        .progress-circle.p0 .value-bar { display: none; }
+        .progress-circle.p1 .value-bar { transform: rotate(4deg); }
+        .progress-circle.p2 .value-bar { transform: rotate(7deg); }
+        .progress-circle.p3 .value-bar { transform: rotate(11deg); }
+        .progress-circle.p4 .value-bar { transform: rotate(14deg); }
+        .progress-circle.p5 .value-bar { transform: rotate(18deg); }
+        .progress-circle.p6 .value-bar { transform: rotate(22deg); }
+        .progress-circle.p7 .value-bar { transform: rotate(25deg); }
+        .progress-circle.p8 .value-bar { transform: rotate(29deg); }
+        .progress-circle.p9 .value-bar { transform: rotate(32deg); }
+        .progress-circle.p10 .value-bar { transform: rotate(36deg); }
+        .progress-circle.p11 .value-bar { transform: rotate(40deg); }
+        .progress-circle.p12 .value-bar { transform: rotate(43deg); }
+        .progress-circle.p13 .value-bar { transform: rotate(47deg); }
+        .progress-circle.p14 .value-bar { transform: rotate(50deg); }
+        .progress-circle.p15 .value-bar { transform: rotate(54deg); }
+        .progress-circle.p16 .value-bar { transform: rotate(58deg); }
+        .progress-circle.p17 .value-bar { transform: rotate(61deg); }
+        .progress-circle.p18 .value-bar { transform: rotate(65deg); }
+        .progress-circle.p19 .value-bar { transform: rotate(68deg); }
+        .progress-circle.p20 .value-bar { transform: rotate(72deg); }
+        .progress-circle.p21 .value-bar { transform: rotate(76deg); }
+        .progress-circle.p22 .value-bar { transform: rotate(79deg); }
+        .progress-circle.p23 .value-bar { transform: rotate(83deg); }
+        .progress-circle.p24 .value-bar { transform: rotate(86deg); }
+        .progress-circle.p25 .value-bar { transform: rotate(90deg); }
+        .progress-circle.p26 .value-bar { transform: rotate(94deg); }
+        .progress-circle.p27 .value-bar { transform: rotate(97deg); }
+        .progress-circle.p28 .value-bar { transform: rotate(101deg); }
+        .progress-circle.p29 .value-bar { transform: rotate(104deg); }
+        .progress-circle.p30 .value-bar { transform: rotate(108deg); }
+        .progress-circle.p31 .value-bar { transform: rotate(112deg); }
+        .progress-circle.p32 .value-bar { transform: rotate(115deg); }
+        .progress-circle.p33 .value-bar { transform: rotate(119deg); }
+        .progress-circle.p34 .value-bar { transform: rotate(122deg); }
+        .progress-circle.p35 .value-bar { transform: rotate(126deg); }
+        .progress-circle.p36 .value-bar { transform: rotate(130deg); }
+        .progress-circle.p37 .value-bar { transform: rotate(133deg); }
+        .progress-circle.p38 .value-bar { transform: rotate(137deg); }
+        .progress-circle.p39 .value-bar { transform: rotate(140deg); }
+        .progress-circle.p40 .value-bar { transform: rotate(144deg); }
+        .progress-circle.p41 .value-bar { transform: rotate(148deg); }
+        .progress-circle.p42 .value-bar { transform: rotate(151deg); }
+        .progress-circle.p43 .value-bar { transform: rotate(155deg); }
+        .progress-circle.p44 .value-bar { transform: rotate(158deg); }
+        .progress-circle.p45 .value-bar { transform: rotate(162deg); }
+        .progress-circle.p46 .value-bar { transform: rotate(166deg); }
+        .progress-circle.p47 .value-bar { transform: rotate(169deg); }
+        .progress-circle.p48 .value-bar { transform: rotate(173deg); }
+        .progress-circle.p49 .value-bar { transform: rotate(176deg); }
+        .progress-circle.p50 .value-bar { transform: rotate(180deg); }
+        .progress-circle.p51 .value-bar { transform: rotate(184deg); }
+        .progress-circle.p52 .value-bar { transform: rotate(187deg); }
+        .progress-circle.p53 .value-bar { transform: rotate(191deg); }
+        .progress-circle.p54 .value-bar { transform: rotate(194deg); }
+        .progress-circle.p55 .value-bar { transform: rotate(198deg); }
+        .progress-circle.p56 .value-bar { transform: rotate(202deg); }
+        .progress-circle.p57 .value-bar { transform: rotate(205deg); }
+        .progress-circle.p58 .value-bar { transform: rotate(209deg); }
+        .progress-circle.p59 .value-bar { transform: rotate(212deg); }
+        .progress-circle.p60 .value-bar { transform: rotate(216deg); }
+        .progress-circle.p61 .value-bar { transform: rotate(220deg); }
+        .progress-circle.p62 .value-bar { transform: rotate(223deg); }
+        .progress-circle.p63 .value-bar { transform: rotate(227deg); }
+        .progress-circle.p64 .value-bar { transform: rotate(230deg); }
+        .progress-circle.p65 .value-bar { transform: rotate(234deg); }
+        .progress-circle.p66 .value-bar { transform: rotate(238deg); }
+        .progress-circle.p67 .value-bar { transform: rotate(241deg); }
+        .progress-circle.p68 .value-bar { transform: rotate(245deg); }
+        .progress-circle.p69 .value-bar { transform: rotate(248deg); }
+        .progress-circle.p70 .value-bar { transform: rotate(252deg); }
+        .progress-circle.p71 .value-bar { transform: rotate(256deg); }
+        .progress-circle.p72 .value-bar { transform: rotate(259deg); }
+        .progress-circle.p73 .value-bar { transform: rotate(263deg); }
+        .progress-circle.p74 .value-bar { transform: rotate(266deg); }
+        .progress-circle.p75 .value-bar { transform: rotate(270deg); }
+        .progress-circle.p76 .value-bar { transform: rotate(274deg); }
+        .progress-circle.p77 .value-bar { transform: rotate(277deg); }
+        .progress-circle.p78 .value-bar { transform: rotate(281deg); }
+        .progress-circle.p79 .value-bar { transform: rotate(284deg); }
+        .progress-circle.p80 .value-bar { transform: rotate(288deg); }
+        .progress-circle.p81 .value-bar { transform: rotate(292deg); }
+        .progress-circle.p82 .value-bar { transform: rotate(295deg); }
+        .progress-circle.p83 .value-bar { transform: rotate(299deg); }
+        .progress-circle.p84 .value-bar { transform: rotate(302deg); }
+        .progress-circle.p85 .value-bar { transform: rotate(306deg); }
+        .progress-circle.p86 .value-bar { transform: rotate(310deg); }
+        .progress-circle.p87 .value-bar { transform: rotate(313deg); }
+        .progress-circle.p88 .value-bar { transform: rotate(317deg); }
+        .progress-circle.p89 .value-bar { transform: rotate(320deg); }
+        .progress-circle.p90 .value-bar { transform: rotate(324deg); }
+        .progress-circle.p91 .value-bar { transform: rotate(328deg); }
+        .progress-circle.p92 .value-bar { transform: rotate(331deg); }
+        .progress-circle.p93 .value-bar { transform: rotate(335deg); }
+        .progress-circle.p94 .value-bar { transform: rotate(338deg); }
+        .progress-circle.p95 .value-bar { transform: rotate(342deg); }
+        .progress-circle.p96 .value-bar { transform: rotate(346deg); }
+        .progress-circle.p97 .value-bar { transform: rotate(349deg); }
+        .progress-circle.p98 .value-bar { transform: rotate(353deg); }
+        .progress-circle.p99 .value-bar { transform: rotate(356deg); }
+        .progress-circle.p100 .value-bar { transform: rotate(360deg); }
+        .btn-warning {
+            font-family: 'Actor' !important;
+            font-size: 18px !important;
+            color: rgb(255, 255, 255);
+            background-color: #566573;
+            height: 50px;
+        }
+        .btn-warning:hover {
+            background-color: orange;
+        }
+        .btn-success {
+            font-family: 'Actor' !important;
+            font-size: 18px !important;
+            color: rgb(255, 255, 255);
+            background-color: #566573;
+            height: 50px;
+            border-bottom-left-radius: 5px !important;
+            border-bottom-right-radius: 5px !important;
+        }
+        .btn-success:hover {
+            background-color: rgb(1, 218, 1);
+        }
+        .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
+        .toggle.ios .toggle-handle { border-radius: 20px; }
+        #eventForm .form-control-feedback {
+            top: 0;
+            right: -15px;
+        }
+    </style>
+</head>
+<body><!--style="border-width: 2px;" required= "required"-->
+    <datalist id="country_list">
+        <option value="Afghanistan"></option>
+        <option value="Albania"></option>
+        <option value="Algeria"></option>
+        <option value="Andorra"></option>
+        <option value="Angola"></option>
+        <option value="Antigua &amp; Deps"></option>
+        <option value="Argentina"></option>
+        <option value="Armenia"></option>
+        <option value="Australia"></option>
+        <option value="Austria"></option>
+        <option value="Azerbaijan"></option>
+        <option value="Bahamas"></option>
+        <option value="Bahrain"></option>
+        <option value="Bangladesh"></option>
+        <option value="Barbados"></option>
+        <option value="Belarus"></option>
+        <option value="Belgium"></option>
+        <option value="Belize"></option>
+        <option value="Benin"></option>
+        <option value="Bhutan"></option>
+        <option value="Bolivia"></option>
+        <option value="Bosnia Herzegovina"></option>
+        <option value="Botswana"></option>
+        <option value="Brazil"></option>
+        <option value="Brunei"></option>
+        <option value="Bulgaria"></option>
+        <option value="Burkina"></option>
+        <option value="Burundi"></option>
+        <option value="Cambodia"></option>
+        <option value="Cameroon"></option>
+        <option value="Canada"></option>
+        <option value="Cape Verde"></option>
+        <option value="Central African Rep"></option>
+        <option value="Chad"></option>
+        <option value="Chile"></option>
+        <option value="China"></option>
+        <option value="Colombia"></option>
+        <option value="Comoros"></option>
+        <option value="Congo"></option>
+        <option value="Congo {Democratic Rep}"></option>
+        <option value="Costa Rica"></option>
+        <option value="Croatia"></option>
+        <option value="Cuba"></option>
+        <option value="Cyprus"></option>
+        <option value="Czech Republic"></option>
+        <option value="Denmark"></option>
+        <option value="Djibouti"></option>
+        <option value="Dominica"></option>
+        <option value="Dominican Republic"></option>
+        <option value="Timor Leste"></option>
+        <option value="Ecuador"></option>
+        <option value="Egypt"></option>
+        <option value="El Salvador"></option>
+        <option value="Equatorial Guinea"></option>
+        <option value="Eritrea"></option>
+        <option value="Estonia"></option>
+        <option value="Ethiopia"></option>
+        <option value="Fiji"></option>
+        <option value="Finland"></option>
+        <option value="France"></option>
+        <option value="Gabon"></option>
+        <option value="Gambia"></option>
+        <option value="Georgia"></option>
+        <option value="Germany"></option>
+        <option value="Ghana"></option>
+        <option value="Greece"></option>
+        <option value="Grenada"></option>
+        <option value="Guatemala"></option>
+        <option value="Guinea"></option>
+        <option value="Guinea-Bissau"></option>
+        <option value="Guyana"></option>
+        <option value="Haiti"></option>
+        <option value="Honduras"></option>
+        <option value="Hungary"></option>
+        <option value="Iceland"></option>
+        <option value="India"></option>
+        <option value="Indonesia"></option>
+        <option value="Iran"></option>
+        <option value="Iraq"></option>
+        <option value="Ireland {Republic}"></option>
+        <option value="Israel"></option>
+        <option value="Italy"></option>
+        <option value="Ivory Coast"></option>
+        <option value="Jamaica"></option>
+        <option value="Japan"></option>
+        <option value="Jordan"></option>
+        <option value="Kazakhstan"></option>
+        <option value="Kenya"></option>
+        <option value="Kiribati"></option>
+        <option value="Korea North"></option>
+        <option value="Korea South"></option>
+        <option value="Kuwait"></option>
+        <option value="Kyrgyzstan"></option>
+        <option value="Laos"></option>
+        <option value="Latvia"></option>
+        <option value="Lebanon"></option>
+        <option value="Lesotho"></option>
+        <option value="Liberia"></option>
+        <option value="Libya"></option>
+        <option value="Liechtenstein"></option>
+        <option value="Lithuania"></option>
+        <option value="Luxembourg"></option>
+        <option value="Macedonia"></option>
+        <option value="Madagascar"></option>
+        <option value="Malawi"></option>
+        <option value="Malaysia"></option>
+        <option value="Maldives"></option>
+        <option value="Mali"></option>
+        <option value="Malta"></option>
+        <option value="Marshall Islands"></option>
+        <option value="Mauritania"></option>
+        <option value="Mauritius"></option>
+        <option value="Mexico"></option>
+        <option value="Micronesia"></option>
+        <option value="Moldova"></option>
+        <option value="Monaco"></option>
+        <option value="Mongolia"></option>
+        <option value="Montenegro"></option>
+        <option value="Morocco"></option>
+        <option value="Mozambique"></option>
+        <option value="Myanmar, {Burma}"></option>
+        <option value="Namibia"></option>
+        <option value="Nauru"></option>
+        <option value="Nepal"></option>
+        <option value="Netherlands"></option>
+        <option value="New Zealand"></option>
+        <option value="Nicaragua"></option>
+        <option value="Niger"></option>
+        <option value="Nigeria"></option>
+        <option value="Norway"></option>
+        <option value="Oman"></option>
+        <option value="Pakistan"></option>
+        <option value="Palau"></option>
+        <option value="Panama"></option>
+        <option value="Papua New Guinea"></option>
+        <option value="Paraguay"></option>
+        <option value="Peru"></option>
+        <option value="Philippines"></option>
+        <option value="Poland"></option>
+        <option value="Portugal"></option>
+        <option value="Qatar"></option>
+        <option value="Romania"></option>
+        <option value="Russian Federation"></option>
+        <option value="Rwanda"></option>
+        <option value="St Kitts &amp; Nevis"></option>
+        <option value="St Lucia"></option>
+        <option value="Saint Vincent &amp; the Grenadines"></option>
+        <option value="Samoa"></option>
+        <option value="San Marino"></option>
+        <option value="Sao Tome &amp; Principe"></option>
+        <option value="Saudi Arabia"></option>
+        <option value="Senegal"></option>
+        <option value="Serbia"></option>
+        <option value="Seychelles"></option>
+        <option value="Sierra Leone"></option>
+        <option value="Singapore"></option>
+        <option value="Slovakia"></option>
+        <option value="Slovenia"></option>
+        <option value="Solomon Islands"></option>
+        <option value="Somalia"></option>
+        <option value="South Africa"></option>
+        <option value="Spain"></option>
+        <option value="Sri Lanka"></option>
+        <option value="Sudan"></option>
+        <option value="Suriname"></option>
+        <option value="Swaziland"></option>
+        <option value="Sweden"></option>
+        <option value="Switzerland"></option>
+        <option value="Syria"></option>
+        <option value="Taiwan"></option>
+        <option value="Tajikistan"></option>
+        <option value="Tanzania"></option>
+        <option value="Thailand"></option>
+        <option value="Togo"></option>
+        <option value="Tonga"></option>
+        <option value="Trinidad &amp; Tobago"></option>
+        <option value="Tunisia"></option>
+        <option value="Turkey"></option>
+        <option value="Turkmenistan"></option>
+        <option value="Tuvalu"></option>
+        <option value="Uganda"></option>
+        <option value="Ukraine"></option>
+        <option value="United Arab Emirates"></option>
+        <option value="United Kingdom"></option>
+        <option value="United States of America"></option>
+        <option value="Uruguay"></option>
+        <option value="Uzbekistan"></option>
+        <option value="Vanuatu"></option>
+        <option value="Vatican City"></option>
+        <option value="Venezuela"></option>
+        <option value="Vietnam"></option>
+        <option value="Yemen"></option>
+        <option value="Zambia"></option>
+        <option value="Zimbabwe"></option>
+    </datalist>
+    <datalist id="sel1">
+        <option value="Male"></option>
+        <option value="Female"></option>
+    </datalist>
+	<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: rgba(0, 0, 0, 0.466); min-height: 100px; padding-left: 0px; padding-right: 0px; margin-bottom: 0 !important;">
+        <div class="container-fluid" style="background-color: #313b3d;">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">
+                    <img src="header.png" style="width: 250px;" alt="logo">
+                </a>
+            </div>
+            <ul class="nav navbar-nav" style="margin-top: 7px;margin-bottom: 2px;">
+                <li>
+                    <a style="font-size: 18px !important; font-family: 'Actor'; color:rgba(238, 238, 238, 0.7); text-shadow: white 0px 0px 1px;">
+                         | Applications
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" style="margin-top: 7px;margin-bottom: 2px;">
+                <li>
+                    <a href="/portal/logout/" style="font-size: 16px !important;">
+                        <span class="glyphicon glyphicon-log-in"></span> Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <h4 style="color:rgba(238, 238, 238, 0.7); margin-top: 10px; padding-left: 56px; text-shadow: white 0px 0px 1px; font-size: 16px; font-family: 'Actor';">NON-DEGREE FORM</h4>
+    </nav>
+
+    <!-- Modal -info -->
+    <div class="container">
+        <div id="modal-3" class="modal" data-modal-effect="slide-top">
+            <div class="modal-content">
+                <h2 class="fs-title">Instructions for filling up the application form</h2>
+                <br>
+                <ol style="text-align: left ; font-size: 15px;">
+                    <li> All fields are mandatory. In case any field is not applicable then please put ‘NA’.</li>
+                    <li> Personal details must be filled as per your passport.</li>
+                    <li> The application will require the following scanned documents in PDF format (size less than 500 kB). Keep the scanned documents ready before you proceed. 
+                        Documents once uploaded cannot be changed.
+                        <ul style="text-align: left">
+                            <li>Passport </li>
+                            <li>Academic Transcripts</li>
+                            <li>Curriculum Vitae</li>
+                            <li>Statement of Research Interest (mandatory for Doctoral Applications)</li>
+                            <li>Scholarship details (if applicable)</li> 
+                            <li>GATE Scorecard (if applicable)</li> 
+                            <li>Work Experience Details (if applicable)</li> 
+                        </ul>
+                    </li>
+                    <li>You will also have to upload your photo and signature in jpg format (size less than 250 kB).</li> 
+                    <li>You can click on the 'Save' button in order to save your application and continue at a later stage. </li> 
+                    <li>The application will be considered as complete on clicking the 'Apply' button. You will not be able to make any changes after submitting.</li>
+                    <li>The application fee is INR 500. After submitting the application, you will be able to make the payment through a payment gateway. After successful payment, 
+                        you will be provided with an option to download the payment details in PDF format. Download it and keep it with you for your reference.</li>  
+                    <li>Please note that the application fee is exempted for those applicants applying through ICCR/EDCIL(SII).</li>
+                </ol>
+                <input type="button" style="margin-bottom: 0;" name="next" class="next action-button modal-close" value="Got it!">
+            </div>
+        </div>
+    </div>
+    <form id="eventForm" method="POST" class="steps form-horizontal row-border" action="/portal/application/0/" enctype="multipart/form-data">
+        <input type="hidden" name="csrfmiddlewaretoken" value="hrPG9yFIgbqCGPQFvjW2PyI4s3yCwou561e1sL0sNn6C8atbX3DPkMJSmK3Lkkyu">
+        <fieldset>
+            <div class="progress-circle over50 p100">
+                <span style="padding-top: 10px;font-family: 'Advent Pro'; font-size: 20px;">13 / 13</span>
+                <div class="left-half-clipper">
+                    <div class="first50-bar"></div>
+                    <div class="value-bar"></div>
+                </div>
+            </div>
+            <h2 class="fs-title"><a style="font-size:24px;color: #566573;text-decoration: none;">C</a>urriculum <a style="font-size:24px;color: #566573;text-decoration: none;">V</a>itae</h2>
+            <h3 class="fs-subtitle">Please upload your curriculum vitae in PDF format.</h3>
+            <hr style="border-style: dashed; border-color: #56657357;">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <input style=" height:47px;align-content: center;" type="file" name="curriculum_vitae" class="form-control" id="curriculum_vitae" onchange="checkformat(this);" accept="application/pdf">
+            </div>
+            <div class="col-md-12">
+            </div><br>
+            <input type="button" style="float: inherit;font-family: 'Actor';" data-page="2" name="previous" class="previous action-button" value="Previous" />
+            <input align="center" style="color: rgb(255, 255, 255);position: absolute; left: 0px; top:420px;" type="submit" id="submit" class="btn btn-warning" value="Save (for later)" name="later" onclick="return filecheck();">
+            <input align="center" style="color: rgb(255, 255, 255);position: absolute; left: 0px; top:469px;" type="submit" id="apply" value="Apply" class="btn btn-success" name="apply" onclick="return formcheck();">
+            <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> Instructions</div>
+        </fieldset>
+
+        <!--Photo and Signature-->
+        <fieldset>
+            <div class="progress-circle p8">
+                <span style="padding-top: 10px;font-family: 'Advent Pro'; font-size: 20px;">1 / 13</span>
+                <div class="left-half-clipper">
+                    <div class="first50-bar"></div>
+                    <div class="value-bar"></div>
+                </div>
+            </div>
+            <h2 class="fs-title"><a style="font-size:24px;color: #566573;text-decoration: none;">P</a>hoto & <a style="font-size:24px;color: #566573;text-decoration: none;">S</a>ignature</h2>
+            <hr style="border-style: dashed; border-color: #56657357;">
+            <div>
+                <label class="col-md-2 control-label">Your photo (in passport size) <span id="photo" style="color:red; font-size: 18px;"></span></label>
+                <div class="col-md-4">
+                    <input style="height: 47px; border-width: 2px;" required= "required" type="file" name="photo" class="form-control" id="mydet_photo" onchange="loadURL(this);" accept="image/*"><br>
+                </div>
+                <span class="error1" style="display: none;">
+                    <i class="error-log fa fa-exclamation-triangle"></i>
+                </span>
+                <label class="col-md-2 control-label">Your Signature <span id="signature" style="color:red; font-size: 18px;"></span></label>
+                <div class="col-md-4">
+                    <input style="height: 47px; border-width: 2px;" required= "required" type="file" name="signature" accept="image/*" class="form-control" id="mydet_sig" onchange="readURL(this);"><br>
+                </div>
+                <span class="error1" style="display: none;">
+                    <i class="error-log fa fa-exclamation-triangle"></i>
+                </span>
+            </div>
+            <input style="font-family: 'Actor';float: inherit;" type="button" data-page="1" name="next" class="next action-button" value="Next" />
+            <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> Instructions</div>
+        </fieldset>
+
+        <!--personal info-->
+        <fieldset>
+            <div class="progress-circle p15">
+                <span style="padding-top: 10px;font-family: 'Advent Pro'; font-size: 20px;">2 / 13</span>
+                <div class="left-half-clipper">
+                    <div class="first50-bar"></div>
+                    <div class="value-bar"></div>
+                </div>
+            </div>
+            <h2 class="fs-title"><a style="font-size:24px;color: #566573;text-decoration: none;">P</a>ersonal <a style="font-size:24px;color: #566573;text-decoration: none;">D</a>etails</h2>
+            <h4 class="fs-title" style="text-transform: none;"><i><small>As in your passport</small></i></h4>
+            <hr style="border-style: dashed; border-color: #56657357;">
+            <div>
+                <label class="col-md-2 control-label">Name <span id="name" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input style="border-width: 2px;" required= "required" type="text" name="name" class="form-control">
+                </div>
+                <label class="col-md-2 control-label">Date of Birth <span id="dob" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input style="border-width: 2px;" required= "required" type="text" name="dob" class="form-control format" id="example1">
+                </div>
+                <label class="col-md-2 control-label">Place of Birth <span id="pob" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input style="border-width: 2px;" required= "required" type="text" name="pob" class="form-control">
+                </div>
+                <span class="error1" style="display: none;">
+                    <i class="error-log fa fa-exclamation-triangle"></i>
+                </span>
+            </div>
+            <div>
+                <label class="col-md-2 control-label">Gender <span id="gender" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input type="text" name="gender" class="form-control" list="sel1">
+                </div>
+                <label class="col-md-2 control-label">Nationality <span id="nationality" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input type="text" name="nationality" class="form-control" list="country_list">
+                </div>
+                <label class="col-md-2 control-label">Main Language/s spoken at home <span id="language" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input type="text" name="language" class="form-control">
+                </div>
+                <label class="col-md-3 control-label">Other Languages Known:</label>
+                <div class="col-md-9">
+                    <input class="tablecntnt" type="text" name="other_language" placeholder="">
+                </div>
+            </div>
+            <input style="font-family: 'Actor';" type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+            <input style="font-family: 'Actor';" type="button" data-page="1" name="next" class="next action-button" value="Next" />
+            <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> Instructions</div>
+        </fieldset>
+
+    <!--Disability details-->  
+        <fieldset>
+            <div class="progress-circle p23">
+                <span style="padding-top: 10px;font-family: 'Advent Pro'; font-size: 20px;">3 / 13</span>
+                <div class="left-half-clipper">
+                    <div class="first50-bar"></div>
+                    <div class="value-bar"></div>
+                </div>
+            </div>
+
+            <h2 class="fs-title"><a style="font-size:24px;color: #566573;text-decoration: none;">D</a>isability <a style="font-size:24px;color: #566573;text-decoration: none;">D</a>etails</h2>
+            <hr style="border-style: dashed; border-color: #56657357;">
+            <!--<p>Please indicate any disabilities you may have, even if you do not require assistance. Further information about availability of support can be provided on request. Do you have a disability, impairment or long term medical condition? *</p>
+            <input style="position:absolute;left:100px;top:225px;width:10% !important;margin:0 0 !important;" type="radio" id="yes" name="gender" value="yes">
+            <label style="position:absolute;left:145px;top:210px;width:10% !important;" for="yes">Yes</label>
+            <input style="position:absolute;left:180px;;top:225px;width:10% !important;" type="radio" id="no" name="gender" value="no">
+            <label style="position:absolute;left:230px;top:210px;width:10% !important;" for="no">No</label>-->
+            <label class="control-label" style="text-align: left;">Please indicate any disabilities you may have even if you do not require assistance. Further information about available support can be provided on request.</label>
+            <label class="control-label " style="text-align: left;">Do you have a disability, impairment or long term medical condition?<br><br></label>
+            <textarea class="form-control" style="border-width:2px;" rows="5" id="comment" placeholder="Disability Details" name="disability"></textarea>
+            <span class="error1" style="display: none;">
+                <i class="error-log fa fa-exclamation-triangle"></i>
+            </span>
+            <input style="font-family: 'Actor';" type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+            <input style="font-family: 'Actor';" type="button" data-page="1" name="next" class="next action-button" value="Next" />
+            <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> Instructions</div>
+        </fieldset>
+
+    <!--Contact Details-->
+        <fieldset>
+            <div class="progress-circle p30">
+                <span style="padding-top: 10px;font-family: 'Advent Pro'; font-size: 20px;">4 / 13</span>
+                <div class="left-half-clipper">
+                    <div class="first50-bar"></div>
+                    <div class="value-bar"></div>
+                </div>
+            </div>
+            <h2 class="fs-title"><a style="font-size:24px;color: #566573;text-decoration: none;">C</a>ontact <a style="font-size:24px;color: #566573;text-decoration: none;">D</a>etails</h2>
+            <h3 class="fs-subtitle">Please provide your current contact email and current contact phone details. The email address will be used to contact you with your username and password once you have been registered so please ensure you provide a valid email address.</h3>
+            <hr style="border-style: dashed; border-color: #56657357;">
+            <div>
+                <label class="col-md-2 control-label">Email Address <span id="email" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-4">
+                    <input type="text" name="email" class="form-control">
+                </div>
+			          <label class="col-md-2 control-label">Home Phone <span id="home_phone" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-4">
+                    <input type="number" name="home_phone" class="form-control" id="example1">
+                </div>
+            </div>
+            <div>
+                <label class="col-md-2 control-label">Mobile Phone <span id="mobile_phone" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-4">
+                    <input type="number" name="mobile_phone" class="form-control">
+                </div>
+                <label class="col-md-2 control-label">Whatsapp Number <span id="whatsapp_phone" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-4">
+                    <input type="text" name="whatsapp_phone" class="form-control">
+                </div>
+            </div>
+            <input style="font-family: 'Actor';" type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+            <input style="font-family: 'Actor';" type="button" data-page="1" name="next" class="next action-button" value="Next" />
+            <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> Instructions</div>
+        </fieldset>
+
+    <!--Address for Communication--> 
+        <fieldset>
+            <div class="progress-circle p38">
+                <span style="padding-top: 10px;font-family: 'Advent Pro'; font-size: 20px;">5 / 13</span>
+                <div class="left-half-clipper">
+                    <div class="first50-bar"></div>
+                    <div class="value-bar"></div>
+                </div>
+            </div>
+            <h2 class="fs-title"><a style="font-size:24px;color: #566573;text-decoration: none;">A</a>ddress for <a style="font-size:24px;color: #566573;text-decoration: none;">C</a>ommunication</h2>
+            <hr style="border-style: dashed; border-color: #56657357;">
+            <div>    
+                <label class="col-md-2 control-label">Country <span id="country" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input type="text" name="country" class="form-control" list="country_list">
+                </div>
+                <label class="col-md-2 control-label">Suburb/Town <span id="town" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input type="text" name="town" class="form-control" id="example1">
+                </div>
+                <label class="col-md-2 control-label">State <span id="state" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input type="text" name="state" class="form-control">
+                </div>
+            </div>
+            <div>    
+                <label class="col-md-3 control-label">Address <span id="address" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-9">
+                    <textarea class="form-control" rows="5" id="comment" placeholder="Current Address" name="address"></textarea>
+                </div>
+                <label class="col-md-2 control-label">Postcode <span id="postcode" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input type="number" class="form-control" name="postcode">
+                </div>
+            </div>
+            <div>    
+                <label class="col-md-2 control-label">&nbsp;&nbsp;&nbsp;Contact Person in case of Emergency <span id="eme_person" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input class="form-control" type="text" name="eme_person" id="eme_person" placeholder="">
+                </div>
+                <label class="col-md-2 control-label">Contact Number in case of Emergency <span id="eme_number" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input class="form-control" type="text" name="eme_number" placeholder="">
+                </div>
+                <div class="col-md-12"></div>
+            </div>
+            <input style="font-family: 'Actor';" type="button" data-page="4" name="previous" class="previous action-button" value="Previous" />
+            <input style="font-family: 'Actor';" type="button" data-page="4" name="next" class="next action-button" value="Next" />
+            <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> Instructions</div>
+        </fieldset>
+
+    <!--Passpprt Details-->  
+        <fieldset>
+            <div class="progress-circle p46">
+                <span style="padding-top: 10px;font-family: 'Advent Pro'; font-size: 20px;">6 / 13</span>
+                <div class="left-half-clipper">
+                    <div class="first50-bar"></div>
+                    <div class="value-bar"></div>
+                </div>
+            </div>
+            <h2 class="fs-title"><a style="font-size:24px;color: #566573;text-decoration: none;">P</a>assport <a style="font-size:24px;color: #566573;text-decoration: none;">D</a>etails</h2>
+            <hr style="border-style: dashed; border-color: #56657357;">
+            <div class="form-item webform-component webform-component-textfield hs_number_of_donors_in_year_1 field hs-form-field" id="webform-component-retention--amount-1"> 
+                <label class="col-md-2 control-label">Passport Number <span id="pass_number" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input type="text" name="pass_number" class="form-control">
+                </div>
+                <label class="col-md-2 control-label">Issued date <span id="issue_date" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input type="text" name="issue_date" class="form-control format" id="example2">
+                </div>
+                <label class="col-md-2 control-label">Expiry date <span id="expiry_date" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input type="text" name="expiry_date" class="form-control format" id="example3">
+                </div>
+            </div>
+            <div class="form-item webform-component webform-component-textfield hs_number_of_donors_in_year_1 field hs-form-field" id="webform-component-retention--amount-1"> 
+                <label class="col-md-2 control-label">Issuing Country <span id="issuing_country" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input type="text" name="issuing_country" class="form-control" list="country">
+                </div>
+			          <label class="col-md-2 control-label">Scanned copy <span id="pass_scan" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-6">
+                    <input type="file" style="height: 47px;" name="pass_scan" class="form-control" id="pass_scan" onchange="checkformat(this);" accept="application/pdf">
+                </div>
+            </div>
+            <input style="font-family: 'Actor';" type="button" data-page="5" name="previous" class="previous action-button" value="Previous" />
+            <input style="font-family: 'Actor';" type="button" data-page="4" name="next" class="next action-button" value="Next" />
+            <!--<input id="submit" class="hs-button primary large action-button submit" type="submit" value="Submit">-->
+            <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> Instructions</div>
+        </fieldset>
+
+    <!--Past visits to kgp-->      
+        <fieldset>
+            <div class="progress-circle over50 p53">
+                <span style="padding-top: 10px;font-family: 'Advent Pro'; font-size: 20px;">7 / 13</span>
+                <div class="left-half-clipper">
+                    <div class="first50-bar"></div>
+                    <div class="value-bar"></div>
+                </div>
+            </div>
+            <h2 class="fs-title"><a style="font-size:24px;color: #566573;text-decoration: none;">P</a>ast visits to <a style="font-size:24px;color: #566573;text-decoration: none;">IIT K</a>gp</h2>
+            <hr style="border-style: dashed; border-color: #56657357;">
+            <div>
+                <h3 class="control-label" style="text-align: left; font-size: 14px;"><b> Have you previously been to Indian Institute of Technology Kharagpur? <span id="previous_visit" style="color:red; font-size: 18px;"></span></b>
+                    &nbsp;<div class="toggle btn ios btn-default off" data-toggle="toggle" style="width: 61.85px; height: 34px;">
+                        <input type="checkbox" data-toggle="toggle" data-style="ios" data-on="Yes" data-off="No" id="visit" name="previous_visit">
+                        <div class="toggle-group">
+                            <label class="btn btn-primary toggle-on">Yes</label>
+                            <label class="btn btn-default active toggle-off">No</label>
+                            <span class="toggle-handle btn btn-default"></span>
+                        </div>
+                    </div>
+                </h3>
+                <span class="error1" style="display: none;">
+                    <i class="error-log fa fa-exclamation-triangle"></i>
+                </span>
+                <div class="table-responsive" id="visit_det" style="display: none;"><br>
+                    <table class="table table-bordered table-responsive">
+                        <thead>
+                            <tr>
+                                <th class="tablehdr">Previous Dates of Arrival in IITKGP</th>
+                                <th class="tablehdr">Previous Student ID issued  at IITKGP</th>
+                                <th class="tablehdr">Semester visited</th>
+                                <th class="tablehdr">Your past mentors at IITKPG</th>
+                                <th class="tablehdr">Course work /Project’s name</th>
+                                <th class="tablehdr">Date of Departure from IITKGP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="pre_date1" class="tablecntnt" id="example4"></td>
+                                <td><input type="text" name="pre_id1" class="tablecntnt"></td>
+                                <td><input type="text" name="semester1" class="tablecntnt"></td>
+                                <td><input type="text" name="past_mentor1" class="tablecntnt"></td>
+                                <td><input type="text" name="course_work1" class="tablecntnt"></td>
+                                <td><input type="text" name="date_departure1" class="tablecntnt" id="example6"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="pre_date2" class="tablecntnt" id="example7"></td>
+                                <td><input type="text" name="pre_id2" class="tablecntnt"></td>
+                                <td><input type="text" name="semester2" class="tablecntnt"></td>
+                                <td><input type="text" name="past_mentor2" class="tablecntnt"></td>
+                                <td><input type="text" name="course_work2" class="tablecntnt"></td>
+                                <td><input type="text" name="date_departure2" class="tablecntnt" id="example9"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <h3 class="control-label" style="text-align: left; font-size: 14px;"> <b>Have you contacted any Faculty member or any office of the Institute about your present intended visit to IITKGP?&nbsp; </b>
+                    <div class="toggle btn btn-default off ios" data-toggle="toggle" style="width: 61.85px; height: 34px;">
+                        <input type="checkbox" data-toggle="toggle" data-style="ios" data-on="Yes" data-off="No" id="contacted_fac" name="contact_fac">
+                        <div class="toggle-group">
+                            <label class="btn btn-primary toggle-on">Yes</label>
+                            <label class="btn btn-default active toggle-off">No</label>
+                            <span class="toggle-handle btn btn-default"></span>
+                        </div>
+                    </div>
+                </h3>
+                <span class="error1" style="display: none;">
+                    <i class="error-log fa fa-exclamation-triangle"></i>
+                </span>
+                <div class="table-responsive" id="contact_fac" style="display: none;"><br>
+                    <table class="table table-bordered table-responsive">
+                        <thead>
+                            <tr>
+                                <th class="tablehdr">Name of the Faculty/ Person Contacted </th>
+                                <th class="tablehdr">Name of the respective Department/School/Center/Lab/Office of Int. Relations where contacted</th>
+                                <th class="tablehdr">Details of  Communications (You may provide email references, if any) </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="faculty1" class="tablecntnt"></td>
+                                <td><input type="text" name="department1" class="tablecntnt"></td>
+                                <td><input type="text" name="communication1" class="tablecntnt"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="faculty2" class="tablecntnt"></td>
+                                <td><input type="text" name="department2" class="tablecntnt"></td>
+                                <td><input type="text" name="communication2" class="tablecntnt"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div>
+                <label class="control-label " style="text-align: left;">Intended courses /areas of Research in IITKGP during this stay <span id="intended_courses" style="color:red; font-size: 18px;"></span>:<br><br></label>
+                <textarea class="form-control" rows="5" id="comment" placeholder="Intended Courses" name="intended_courses"></textarea>
+                <span class="error1" style="display: none;">
+                    <i class="error-log fa fa-exclamation-triangle"></i>
+                </span>
+            </div>
+            <div>
+                <label class="control-label " style="text-align: left;">Intended duration of stay at IITKGP :</label><br>
+                <label class="control-label" style="font-size: 13px;">FROM <span id="dur_from" style="font-family:'Actor'; color:red; font-size: 18px;"></span>:</label>
+                <input type="date" name="dur_from" class="form-control" id="example10">
+                <label class="control-label" style="font-size: 13px;">TO <span id="dur_to" style="font-family:'Actor; color:red; font-size: 18px;"></span>:</label>
+                <input type="date" name="dur_to" class="form-control" id="example11">
+                <span class="error1" style="display: none;">
+                    <i class="error-log fa fa-exclamation-triangle"></i>
+                </span>
+            </div>
+            <input style="font-family: 'Actor';" type="button" data-page="5" name="previous" class="previous action-button" value="Previous" />
+            <input style="font-family: 'Actor';" type="button" data-page="5" name="next" class="next action-button" value="Next" />
+            <!--<input id="submit" class="hs-button primary large action-button submit" type="submit" value="Submit">-->
+            <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> Instructions</div>
+        </fieldset>
+
+    <!--Scholarship Details-->
+        <fieldset>
+            <div class="progress-circle over50  p61">
+                <span style="padding-top: 10px;font-family: 'Advent Pro'; font-size: 20px;">8 / 13</span>
+                <div class="left-half-clipper">
+                    <div class="first50-bar"></div>
+                    <div class="value-bar"></div>
+                </div>
+            </div>
+            <h2 class="fs-title"><a style="font-size:24px;color: #566573;text-decoration: none;">S</a>cholarship <a style="font-size:24px;color: #566573;text-decoration: none;">D</a>etails</h2>
+            <hr style="border-style: dashed; border-color: #56657357;">
+            <div>
+                <h3 class="control-label" style="text-align: left; padding-left: 30px; font-size: 14px;"><b> Have you received/ will you apply for any scholarship award for visiting IIT Kharagpur?:</b>
+                    &nbsp;<div class="toggle btn ios btn-default off" data-toggle="toggle" style="width: 61.85px; height: 34px;">
+                        <input type="checkbox" data-toggle="toggle" data-style="ios" data-on="Yes" data-off="No" id="scholarship" name="scholar">
+                        <div class="toggle-group">
+                            <label class="btn btn-primary toggle-on">Yes</label>
+                            <label class="btn btn-default active toggle-off">No</label>
+                            <span class="toggle-handle btn btn-default"></span>
+                        </div>
+                    </div>
+                </h3>
+                <div id="scholar" style="padding-left: 25px; display: none;"><br>
+                    <div class="col-md-4">
+                        <textarea class="tablecntnt" rows="5" id="scholar_det" placeholder="Please specify the scholarship details." name="scholar_det"></textarea>
+                    </div>
+                    <div class="col-md-4">
+                        <textarea class="tablecntnt" rows="5" id="scholar_det_IITKGP" placeholder="Is this an IITKGP scholarship? Please give details." name="scholar_det_IITKGP"></textarea>
+                    </div>
+                    <div class="col-md-4" style="padding-bottom: 20px;">
+                        <label class="col-md-12 control-label" style="text-align: left; padding-left: 30px;">Please attach the supporting document (if any).</label>
+                        <input type="file" name="scholarship_doc" class="tablecntnt" id="scholarship_doc" onchange="checkformat(this);" accept="application/pdf">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="control-label" style="text-align: left; padding-left: 30px; font-size: 14px;"><b> If you do not have a scholarship or if the scholarship is partial, do you have any other funding source?:</b>
+                    &nbsp;<div class="toggle btn btn-default off ios" data-toggle="toggle" style="width: 61.85px; height: 34px;">
+                        <input type="checkbox" data-toggle="toggle" data-style="ios" data-on="Yes" data-off="No" id="funding" name="other_funding">
+                        <div class="toggle-group">
+                            <label class="btn btn-primary toggle-on">Yes</label>
+                            <label class="btn btn-default active toggle-off">No</label>
+                            <span class="toggle-handle btn btn-default"></span>
+                        </div>
+                    </div>
+                </h3>
+                <div id="other_funding" style="display: none; padding-left:25px;"><br>
+                    <div class="col-md-12">
+                        <textarea class="tablecntnt" rows="5" id="other_funding_det" placeholder="Please specify the details." name="other_funding_det"></textarea>
+                    </div>
+                </div>
+            </div><br>
+            <div>
+                <p style="padding-left:15px;"><small><i style="min-width: 700px;">(NOTE: Eligibility and admission will be decided independent of financial status.)</i></small></p>
+            </div>
+            <input style="font-family: 'Actor';" type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+            <input style="font-family: 'Actor';" type="button" data-page="1" name="next" class="next action-button" value="Next" />
+            <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> Instructions</div>
+        </fieldset>
+
+    <!--Home Institution and Administrator's details-->
+        <fieldset>
+            <div class="progress-circle over50 p69">
+                <span style="padding-top: 10px;font-family: 'Advent Pro'; font-size: 20px;">9 / 13</span>
+                <div class="left-half-clipper">
+                    <div class="first50-bar"></div>
+                    <div class="value-bar"></div>
+                </div>
+            </div>
+            <h2 class="fs-title"><a style="font-size:24px;color: #566573;text-decoration: none;">H</a>ome <a style="font-size:24px;color: #566573;text-decoration: none;">I</a>nstituition & <a style="font-size:24px;color: #566573;text-decoration: none;">A</a>dministrator's <a style="font-size:24px;color: #566573;text-decoration: none;">D</a>etails</h2>
+            <hr style="border-style: dashed; border-color: #56657357;">
+            <div class="col-md-12">
+                <label class="col-md-4 control-label">Current Programme of Study <span id="current_program" style="color:red; font-size: 18px;"></span>:
+                    <p><small><i> Mention briefly about the Programme you are currently enrolled in (Also please attach the scan copy(ies) of your transcript(s) wherever applicable).</i></small></p>
+                </label>
+                <div class="col-md-7">
+                    <textarea class="form-control" rows="5" id="comment" placeholder="Current Programme of Study" name="current_program"></textarea>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label class="col-md-2 control-label">Institute name <span id="home_institue" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-4">
+                    <input type="text" name="home_institue" class="form-control">
+                </div>
+                <label class="col-md-2 control-label">Address <span id="home_address" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-4">
+                    <input type="text" name="home_address" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-3"></div>
+                <div class="col-md-9">
+                    <label style="padding-top:10px;" class="col-md-6 control-label">Does your institute have an MOU with IITKGP?</label>
+                    <div class="toggle btn btn-default off ios" data-toggle="toggle" style="width: 61.85px; height: 34px;">
+                        <input type="checkbox" data-toggle="toggle" data-style="ios" data-on="Yes" data-off="No" name="mou">
+                        <div class="toggle-group">
+                            <label style="padding-top:5px;" class="btn btn-primary toggle-on">Yes</label>
+                            <label style="padding-top:5px;" class="btn btn-default active toggle-off">No</label>
+                            <span class="toggle-handle btn btn-default"></span>
+                        </div><br><br>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12" style="padding-top: 20px;"></div>
+            <br><br><h5 style="padding-left: 30px;"> <b> Please provide the details of the person whom IITKGP will correspond with during your visit and share official correspondences:</b></h5><br>
+            <div class="col-md-12">
+                <label class="col-md-2 control-label">Person’s Name <span id="iit_contact_person" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input type="text" name="iit_contact_person" class="form-control">
+                </div>
+                <label class="col-md-2 control-label">Designation <span id="designation" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input type="text" name="designation" class="form-control">
+                </div>
+                <label class="col-md-2 control-label">Email ID <span id="contact_email" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input type="text" name="contact_email" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-12">
+                <label class="col-md-2 control-label">Contact Number <span id="contact_number" style="color:red; font-size: 18px;"></span>:</label>
+                <div class="col-md-2">
+                    <input type="text" name="contact_number" class="form-control">
+                </div>
+                <label class="col-md-2 control-label">Business hours:</label>
+                <div class="col-md-2">
+                    <input type="text" name="official_hours" class="form-control">
+                </div>
+            </div>
+            <input style="font-family: 'Actor';" type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+            <input style="font-family: 'Actor';" type="button" data-page="1" name="next" class="next action-button" value="Next" />
+            <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> Instructions</div>
+        </fieldset>
+
+    <!--Academic Qualifications/ Educational Details: (Latest on top including the ongoing programme)-->
+        <fieldset>
+            <div class="progress-circle over50 p77">
+                <span style="padding-top: 10px;font-family: 'Advent Pro'; font-size: 20px;">10 / 13</span>
+                <div class="left-half-clipper">
+                    <div class="first50-bar"></div>
+                    <div class="value-bar"></div>
+                </div>
+            </div>
+            <h2 class="fs-title"><a style="font-size:24px;color: #566573;text-decoration: none;">A</a>cademic <a style="font-size:24px;color: #566573;text-decoration: none;">Q</a>ualifications</h2>
+            <h3 class="fs-subtitle">Latest on top including the ongoing programme</h3>
+            <hr style="border-style: dashed; border-color: #56657357;">
+            <div class="table-responsive"><br>
+                <table class="table table-bordered table-responsive" id="acadtable">
+                    <thead>
+                        <tr>
+                            <th class="tablehdr">Name of the Degree/Exam </th>
+                            <th class="tablehdr">University/Board/ <br>Council</th>
+                            <th class="tablehdr">Year of Completion </th>
+                            <th class="tablehdr">GPA (or Equivalent) </th>
+                            <th class="tablehdr">Maximum GPA Scale (or Equivalent) </th>
+                            <th class="tablehdr">Major/Specialisation/<br>Subjects </th>
+                            <th class="tablehdr">Transcripts/<br>Grade Card </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" name="degree" class="tablecntnt"></td>
+                            <td><input type="text" name="university" class="tablecntnt"></td>
+                            <td><input type="text" name="year_of_completion" class="tablecntnt"></td>
+                            <td><input type="text" name="gpa" class="tablecntnt"></td>
+                            <td><input type="text" name="gpa_scale" class="tablecntnt"></td>
+                            <td><input type="text" name="major" class="tablecntnt"></td>
+                            <td><input type="file" name="grade_card" class="tablecntnt" id="grade_card" onchange="checkformat(this);" accept="application/pdf"></td>
+                            <td><input type="button" value="Delete" id="del"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="degree" class="tablecntnt"></td>
+                            <td><input type="text" name="university" class="tablecntnt"></td>
+                            <td><input type="text" name="year_of_completion" class="tablecntnt"></td>
+                            <td><input type="text" name="gpa" class="tablecntnt"></td>
+                            <td><input type="text" name="gpa_scale" class="tablecntnt"></td>
+                            <td><input type="text" name="major" class="tablecntnt"></td>
+                            <td><input type="file" name="grade_card" class="tablecntnt" id="grade_card1" onchange="checkformat(this);" accept="application/pdf"></td>
+                            <td><input type="button" value="Delete" id="del"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="degree" class="tablecntnt"></td>
+                            <td><input type="text" name="university" class="tablecntnt"></td>
+                            <td><input type="text" name="year_of_completion" class="tablecntnt" id="example14"></td>
+                            <td><input type="text" name="gpa" class="tablecntnt"></td>
+                            <td><input type="text" name="gpa_scale" class="tablecntnt"></td>
+                            <td><input type="text" name="major" class="tablecntnt"></td>
+                            <td><input type="file" name="grade_card" class="tablecntnt" id="grade_card2" onchange="checkformat(this);" accept="application/pdf"></td>
+                            <td><input type="button" value="Delete" id="del"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="degree" class="tablecntnt"></td>
+                            <td><input type="text" name="university" class="tablecntnt"></td>
+                            <td><input type="text" name="year_of_completion" class="tablecntnt" id="example15"></td>
+                            <td><input type="text" name="gpa" class="tablecntnt"></td>
+                            <td><input type="text" name="gpa_scale" class="tablecntnt"></td>
+                            <td><input type="text" name="major" class="tablecntnt"></td>
+                            <td><input type="file" name="grade_card" class="tablecntnt" id="grade_card3" onchange="checkformat(this);" accept="application/pdf"></td>
+                            <td><input type="button" value="Delete" id="del"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="degree" class="tablecntnt"></td>
+                            <td><input type="text" name="university" class="tablecntnt"></td>
+                            <td><input type="text" name="year_of_completion" class="tablecntnt" id="example16"></td>
+                            <td><input type="text" name="gpa" class="tablecntnt"></td>
+                            <td><input type="text" name="gpa_scale" class="tablecntnt"></td>
+                            <td><input type="text" name="major" class="tablecntnt"></td>
+                            <td><input type="file" name="grade_card" class="tablecntnt" id="grade_card4" onchange="checkformat(this);" accept="application/pdf"></td>
+                            <td><input type="button" value="Delete" id="del"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4 id="insert" style="text-align: center;align-content: center;height:30px;padding-top: 7px;cursor: pointer;font-size: 16px;border-radius: 4px;border: rgba(168, 168, 168, 0.719) solid 1px;background-color: rgba(148, 148, 148, 0);color: rgb(95, 95, 95); padding-left: 50px;"> Add New Row </h4>
+            </div>
+            <input style="font-family: 'Actor';" type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+            <input style="font-family: 'Actor';" type="button" data-page="1" name="next" class="next action-button" value="Next" />
+            <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> Instructions</div>
+        </fieldset>
+
+    <!--Publications/ research papers /books:-->
+        <fieldset>
+            <div class="progress-circle over50 p85">
+                <span style="padding-top: 10px;font-family: 'Advent Pro'; font-size: 20px;">11 / 13</span>
+                <div class="left-half-clipper">
+                    <div class="first50-bar"></div>
+                    <div class="value-bar"></div>
+                </div>
+            </div>
+            <h2 class="fs-title"><a style="font-size:24px;color: #566573;text-decoration: none;">P</a>ublications / <a style="font-size:24px;color: #566573;text-decoration: none;">R</a>esearch papers / <a style="font-size:24px;color: #566573;text-decoration: none;">B</a>ooks</h2>
+            <hr style="border-style: dashed; border-color: #56657357;">
+            <div class="table-responsive"><br>
+                <table class="table table-bordered table-responsive">
+                    <thead>
+                        <tr>
+                            <th class="tablehdr">Title of Conference Paper/ Journal Paper/ Book Chapter/ Book</th>
+                            <th class="tablehdr">Authors</th>
+                            <th class="tablehdr">Publication Details (Publisher, Volume no., Pages, Year)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" name="paper_title1" class="tablecntnt"></td>
+                            <td><input type="text" name="authors1" class="tablecntnt"></td>
+                            <td><input type="text" name="details1" class="tablecntnt"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="paper_title2" class="tablecntnt"></td>
+                            <td><input type="text" name="authors2" class="tablecntnt"></td>
+                            <td><input type="text" name="details2" class="tablecntnt"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="paper_title3" class="tablecntnt"></td>
+                            <td><input type="text" name="authors3" class="tablecntnt"></td>
+                            <td><input type="text" name="details3" class="tablecntnt"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <input style="font-family: 'Actor';" type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+            <input style="font-family: 'Actor';" type="button" data-page="1" name="next" class="next action-button" value="Next" />
+            <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> Instructions</div>
+        </fieldset>
+
+    <!--Work Experience Details:-->
+        <fieldset>
+            <div class="progress-circle over50 p92">
+                <span style="padding-top: 10px;font-family: 'Advent Pro'; font-size: 20px;">12 / 13</span>
+                <div class="left-half-clipper">
+                    <div class="first50-bar"></div>
+                    <div class="value-bar"></div>
+                </div>
+            </div>
+            <h2 class="fs-title"><a style="font-size:24px;color: #566573;text-decoration: none;">W</a>ork / <a style="font-size:24px;color: #566573;text-decoration: none;">E</a>xperience <a style="font-size:24px;color: #566573;text-decoration: none;">D</a>etails</h2>
+            <hr style="border-style: dashed; border-color: #56657357;">
+            <div class="table-responsive"><br>
+                <table class="table table-bordered table-responsive">
+                    <thead>
+                        <tr>
+                        <th class="tablehdr">Company Name</th>
+                        <th class="tablehdr">Nature of Job </th>
+                        <th class="tablehdr">From</th>
+                        <th class="tablehdr">To</th>
+                        <th class="tablehdr">Supporting Docs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" name="company_name1" class="tablecntnt"></td>
+                            <td><input type="text" name="job_nature1" class="tablecntnt"></td>
+                            <td><input type="text" name="work_from1" class="tablecntnt" id="example20"></td>
+                            <td><input type="text" name="work_to1" class="tablecntnt" id="example21"></td>
+                            <td><input type="file" name="supp_doc1" class="tablecntnt" id="supp_doc1" onchange="checkformat(this);" accept="application/pdf"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="company_name2" class="tablecntnt"></td>
+                            <td><input type="text" name="job_nature2" class="tablecntnt"></td>
+                            <td><input type="text" name="work_from2" class="tablecntnt" id="example22"></td>
+                            <td><input type="text" name="work_to2" class="tablecntnt" id="example23"></td>
+                            <td><input type="file" name="supp_doc2" class="tablecntnt" id="supp_doc2" onchange="checkformat(this);" accept="application/pdf"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="company_name3" class="tablecntnt"></td>
+                            <td><input type="text" name="job_nature3" class="tablecntnt"></td>
+                            <td><input type="text" name="work_from3" class="tablecntnt" id="example24"></td>
+                            <td><input type="text" name="work_to3" class="tablecntnt" id="example25"></td>
+                            <td><input type="file" name="supp_doc3" class="tablecntnt" id="supp_doc3" onchange="checkformat(this);" accept="application/pdf"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <input style="font-family: 'Actor';" type="button" data-page="2" name="previous" class="previous action-button" value="Previous" />
+            <input style="font-family: 'Actor';" type="button" data-page="1" name="next" class="next action-button" value="Next" />
+            <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> Instructions</div>
+        </fieldset>
+
+    <!--Curriculum Vitae-->
+        <fieldset>
+            <div class="progress-circle over50 p100">
+                <span style="padding-top: 10px;font-family: 'Advent Pro'; font-size: 20px;">13 / 13</span>
+                <div class="left-half-clipper">
+                    <div class="first50-bar"></div>
+                    <div class="value-bar"></div>
+                </div>
+            </div>
+            <h2 class="fs-title"><a style="font-size:24px;color: #566573;text-decoration: none;">C</a>urriculum <a style="font-size:24px;color: #566573;text-decoration: none;">V</a>itae</h2>
+            <h3 class="fs-subtitle">Please upload your curriculum vitae in PDF format.</h3>
+            <hr style="border-style: dashed; border-color: #56657357;">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <input style=" height:47px;align-content: center;" type="file" name="curriculum_vitae" class="form-control" id="curriculum_vitae" onchange="checkformat(this);" accept="application/pdf">
+            </div>
+            <div class="col-md-12">
+            </div><br>
+            <input type="button" style="float: inherit;font-family: 'Actor';" data-page="2" name="previous" class="previous action-button" value="Previous" />
+            <input align="center" style="color: rgb(255, 255, 255);position: absolute; left: 0px; top:410px;" type="submit" id="submit" class="btn btn-warning" value="Save (for later)" name="later" onclick="return filecheck();">
+            <input align="center" style="color: rgb(255, 255, 255);position: absolute; left: 0px; top:449px;" type="submit" id="apply" value="Apply" class="btn btn-success" name="apply" onclick="return formcheck();">
+            <div class="explanation btn btn-small modal-trigger" data-modal-id="modal-3"><i class="question-log fa fa-question-circle"></i> Instructions</div>
+        </fieldset>
+        
+    </form>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
+    <script src='https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js'></script>
+    <!--<script src="homepage.js"></script>-->
+    <script>
+        $(document).ready(function() {
+            var current_fs, next_fs, previous_fs;
+            var left, opacity, scale;
+            var animating;
+            $(".steps").validate({
+                errorClass: 'invalid',
+                errorElement: 'span',
+                errorPlacement: function(error, element) {
+                    error.insertAfter(element.next('span').children());
+                },
+                highlight: function(element) {
+                    $(element).next('span').show();
+                },
+                unhighlight: function(element) {
+                    $(element).next('span').hide();
+                }
+            });
+            $(".next").click(function() {
+                $(".steps").validate({
+                    errorClass: 'invalid',
+                    errorElement: 'span',
+                    errorPlacement: function(error, element) {
+                        error.insertAfter(element.next('span').children());
+                    },
+                    highlight: function(element) {
+                        $(element).next('span').show();
+                    },
+                    unhighlight: function(element) {
+                        $(element).next('span').hide();
+                    }
+                });
+                if ((!$('.steps').valid())) {
+                    
+                }
+                if (animating) return false;
+                animating = true;
+                current_fs = $(this).parent();
+                next_fs = $(this).parent().next();
+                $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+                next_fs.show();
+                current_fs.animate({
+                    opacity: 0
+                }, {
+                    step: function(now, mx) {
+                        scale = 1 - (1 - now) * 0.2;
+                        left = (now * 50) + "%";
+                        opacity = 1 - now;
+                        current_fs.css({
+                            'transform': 'scale(' + scale + ')'
+                        });
+                        next_fs.css({
+                            'left': left,
+                            'opacity': opacity
+                        });
+                    },
+                    duration: 800,
+                    complete: function() {
+                        current_fs.hide();
+                        animating = false;
+                    },
+                    easing: 'easeInOutExpo'
+                });
+            });
+            $(".submit").click(function() {
+                $(".steps").validate({
+                    errorClass: 'invalid',
+                    errorElement: 'span',
+                    errorPlacement: function(error, element) {
+                        error.insertAfter(element.next('span').children());
+                    },
+                    highlight: function(element) {
+                        $(element).next('span').show();
+                    },
+                    unhighlight: function(element) {
+                        $(element).next('span').hide();
+                    }
+                });
+                if ((!$('.steps').valid())) {
+                    return false;
+                }
+            });
+            $(".previous").click(function() {
+                if (animating) return false;
+                animating = true;
+                current_fs = $(this).parent();
+                previous_fs = $(this).parent().prev();
+                $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+                previous_fs.show();
+                current_fs.animate({
+                    opacity: 0
+                }, {
+                    step: function(now, mx) {
+                        scale = 0.8 + (1 - now) * 0.2;
+                        left = ((1 - now) * 50) + "%";
+                        opacity = 1 - now;
+                        current_fs.css({
+                            'left': left
+                        });
+                        previous_fs.css({
+                            'transform': 'scale(' + scale + ')',
+                            'opacity': opacity
+                        });
+                    },
+                    duration: 800,
+                    complete: function() {
+                        current_fs.hide();
+                        animating = false;
+                    },
+                    easing: 'easeInOutExpo'
+                });
+            });
+        });
+        jQuery(document).ready(function() {
+            jQuery("#edit-submitted-acquisition-amount-1,#edit-submitted-acquisition-amount-2,#edit-submitted-cultivation-amount-1,#edit-submitted-cultivation-amount-2,#edit-submitted-cultivation-amount-3,#edit-submitted-cultivation-amount-4,#edit-submitted-retention-amount-1,#edit-submitted-retention-amount-2,#edit-submitted-constituent-base-total-constituents").keyup(function() {
+                calcTotal();
+            });
+        });
+
+        function calcTotal() {
+            var grade = 0;
+            var donorTotal = Number(jQuery("#edit-submitted-constituent-base-total-constituents").val().replace(/,/g, ""));
+            if (donorTotal) {
+                donorTotal = parseFloat(donorTotal);
+            } else {
+                donorTotal = 0;
+            }
+            grade += getBonusDonorPoints(donorTotal);
+            var acqAmount1 = Number(jQuery("#edit-submitted-acquisition-amount-1").val().replace(/,/g, ""));
+            var acqAmount2 = Number(jQuery("#edit-submitted-acquisition-amount-2").val().replace(/,/g, ""));
+            var acqTotal = 0;
+            if (acqAmount1) {
+                acqAmount1 = parseFloat(acqAmount1);
+            } else {
+                acqAmount1 = 0;
+            }
+            if (acqAmount2) {
+                acqAmount2 = parseFloat(acqAmount2);
+            } else {
+                acqAmount2 = 0;
+            }
+            if (acqAmount1 > 0 && acqAmount2 > 0) {
+                acqTotal = ((acqAmount2 - acqAmount1) / acqAmount1 * 100).toFixed(2);
+            } else {
+                acqTotal = 0;
+            }
+            jQuery("#edit-submitted-acquisition-percent-change").val(acqTotal + '%');
+            grade += getAcquisitionPoints(acqTotal);
+            console.log(grade);
+            var cultAmount1 = Number(jQuery("#edit-submitted-cultivation-amount-1").val().replace(/,/g, ""));
+            var cultAmount2 = Number(jQuery("#edit-submitted-cultivation-amount-2").val().replace(/,/g, ""));
+            var cultTotal = 0;
+            if (cultAmount1) {
+                cultAmount1 = parseFloat(cultAmount1);
+            } else {
+                cultAmount1 = 0;
+            }
+            if (cultAmount2) {
+                cultAmount2 = parseFloat(cultAmount2);
+            } else {
+                cultAmount2 = 0;
+            }
+            if (cultAmount1 > 0 && cultAmount2 > 0) {
+                cultTotal = ((cultAmount2 - cultAmount1) / cultAmount1 * 100).toFixed(2);
+            } else {
+                cultTotal = 0;
+            }
+            jQuery("#edit-submitted-cultivation-percent-change1").val(cultTotal + '%');
+            grade += getAcquisitionPoints(cultTotal);
+            var cultAmount3 = Number(jQuery("#edit-submitted-cultivation-amount-3").val().replace(/,/g, ""));
+            var cultAmount4 = Number(jQuery("#edit-submitted-cultivation-amount-4").val().replace(/,/g, ""));
+            if (cultAmount3) {
+                cultAmount3 = parseFloat(cultAmount3);
+            } else {
+                cultAmount3 = 0;
+            }
+            if (cultAmount4) {
+                cultAmount4 = parseFloat(cultAmount4);
+            } else {
+                cultAmount4 = 0;
+            }
+            if (cultAmount3 > 0 && cultAmount4 > 0) {
+                cultTotal2 = ((cultAmount4 - cultAmount3) / cultAmount3 * 100).toFixed(2);
+            } else {
+                cultTotal2 = 0;
+            }
+            jQuery("#edit-submitted-cultivation-percent-change2").val(cultTotal2 + '%');
+            grade += getAcquisitionPoints(cultTotal2);
+            var retAmount1 = Number(jQuery("#edit-submitted-retention-amount-1").val().replace(/,/g, ""));
+            var retAmount2 = Number(jQuery("#edit-submitted-retention-amount-2").val().replace(/,/g, ""));
+            var retTotal = 0;
+            if (retAmount1) {
+                retAmount1 = parseFloat(retAmount1);
+            } else {
+                retAmount1 = 0;
+            }
+            if (retAmount2) {
+                retAmount2 = parseFloat(retAmount2);
+            } else {
+                retAmount2 = 0;
+            }
+            if (retAmount1 > 0 && retAmount2 > 0) {
+                retTotal = (retAmount2 / retAmount1 * 100).toFixed(2);
+            } else {
+                retTotal = 0;
+            }
+            jQuery("#edit-submitted-retention-percent-change").val(retTotal + '%');
+            grade += getAcquisitionPoints(retTotal);
+            jQuery("#edit-submitted-final-grade-grade").val(grade + ' / 400');
+        }
+
+        function getAcquisitionPoints(val) {
+            if (val < 1) {
+                return 0;
+            } else if (val >= 1 && val < 6) {
+                return 50;
+            } else if (val >= 6 && val < 11) {
+                return 60;
+            } else if (val >= 11 && val < 16) {
+                return 70;
+            } else if (val >= 16 && val < 21) {
+                return 75;
+            } else if (val >= 21 && val < 26) {
+                return 80;
+            } else if (val >= 26 && val < 31) {
+                return 85;
+            } else if (val >= 31 && val < 36) {
+                return 90;
+            } else if (val >= 36 && val < 41) {
+                return 95;
+            } else if (val >= 41) {
+                return 100;
+            }
+        }
+
+        function getCultivationGiftPoints(val) {
+            if (val < 1) {
+                return 0;
+            } else if (val >= 1 && val < 4) {
+                return 50;
+            } else if (val >= 4 && val < 7) {
+                return 60;
+            } else if (val >= 7 && val < 10) {
+                return 70;
+            } else if (val >= 10 && val < 13) {
+                return 75;
+            } else if (val >= 13 && val < 16) {
+                return 80;
+            } else if (val >= 16 && val < 21) {
+                return 85;
+            } else if (val >= 21 && val < 26) {
+                return 90;
+            } else if (val >= 26 && val < 51) {
+                return 95;
+            } else if (val >= 51) {
+                return 100;
+            }
+        }
+
+        function getCultivationDonationPoints(val) {
+            if (val < 1) {
+                return 0;
+            } else if (val >= 1 && val < 6) {
+                return 50;
+            } else if (val >= 6 && val < 11) {
+                return 60;
+            } else if (val >= 11 && val < 16) {
+                return 70;
+            } else if (val >= 16 && val < 21) {
+                return 75;
+            } else if (val >= 21 && val < 26) {
+                return 80;
+            } else if (val >= 26 && val < 31) {
+                return 85;
+            } else if (val >= 31 && val < 36) {
+                return 90;
+            } else if (val >= 36 && val < 41) {
+                return 95;
+            } else if (val >= 41) {
+                return 100;
+            }
+        }
+
+        function getRetentionPoints(val) {
+            if (val < 1) {
+                return 0;
+            } else if (val >= 1 && val < 51) {
+                return 50;
+            } else if (val >= 51 && val < 56) {
+                return 60;
+            } else if (val >= 56 && val < 61) {
+                return 70;
+            } else if (val >= 61 && val < 66) {
+                return 75;
+            } else if (val >= 66 && val < 71) {
+                return 80;
+            } else if (val >= 71 && val < 76) {
+                return 85;
+            } else if (val >= 76 && val < 81) {
+                return 90;
+            } else if (val >= 81 && val < 91) {
+                return 95;
+            } else if (val >= 91) {
+                return 100;
+            }
+        }
+
+        function getBonusDonorPoints(val) {
+            if (val < 10001) {
+                return 0;
+            } else if (val >= 10001 && val < 25001) {
+                return 10;
+            } else if (val >= 25001 && val < 50000) {
+                return 15;
+            } else if (val >= 50000) {
+                return 20;
+            }
+        }
+        var modules = {
+            $window: $(window),
+            $html: $('html'),
+            $body: $('body'),
+            $container: $('.container'),
+            init: function() {
+                $(function() {
+                    modules.modals.init();
+                });
+            },
+            modals: {
+                trigger: $('.explanation'),
+                modal: $('.modal'),
+                scrollTopPosition: null,
+                init: function() {
+                    var self = this;
+                    if (self.trigger.length > 0 && self.modal.length > 0) {
+                        modules.$body.append('<div class="modal-overlay"></div>');
+                        self.triggers();
+                    }
+                },
+                triggers: function() {
+                    var self = this;
+                    self.trigger.on('click', function(e) {
+                        e.preventDefault();
+                        var $trigger = $(this);
+                        self.openModal($trigger, $trigger.data('modalId'));
+                    });
+                    $('.modal-overlay').on('click', function(e) {
+                        e.preventDefault();
+                        self.closeModal();
+                    });
+                    modules.$body.on('keydown', function(e) {
+                        if (e.keyCode === 27) {
+                            self.closeModal();
+                        }
+                    });
+                    $('.modal-close').on('click', function(e) {
+                        e.preventDefault();
+                        self.closeModal();
+                    });
+                },
+                openModal: function(_trigger, _modalId) {
+                    var self = this,
+                        scrollTopPosition = modules.$window.scrollTop(),
+                        $targetModal = $('#' + _modalId);
+                    self.scrollTopPosition = scrollTopPosition;
+                    modules.$html.addClass('modal-show').attr('data-modal-effect', $targetModal.data('modal-effect'));
+                    $targetModal.addClass('modal-show');
+                    modules.$container.scrollTop(scrollTopPosition);
+                },
+                closeModal: function() {
+                    var self = this;
+                    $('.modal-show').removeClass('modal-show');
+                    modules.$html.removeClass('modal-show').removeAttr('data-modal-effect');
+                    modules.$window.scrollTop(self.scrollTopPosition);
+                }
+            }
+        }
+        modules.init();
+    </script>
+    <!-- Default Statcounter code for International Relations, IITKGP http://www.international.iitkgp.ac.in -->
+    <script type="text/javascript">
+        var sc_project=11784898; 
+        var sc_invisible=1; 
+        var sc_security="1f6ab800"; 
+    </script>
+    <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async=""></script>
+    <noscript>
+        <div class="statcounter">
+            <a title="Web Analytics" href="http://statcounter.com/" target="_blank">
+                <img class="statcounter" src="//c.statcounter.com/11784898/0/1f6ab800/1/" alt="Web Analytics">
+            </a>
+        </div>
+    </noscript>
+    <!-- End of Statcounter Code -->
+    <!-- <a href="http://statcounter.com/p11784898/?guest=1">View Stats</a> -->
+    
+    <script type="text/javascript">
+        // When the document is ready
+        $(document).ready(function () {
+
+            $('#example1').datepicker({
+                format: "yyyy-mm-dd"
+            });
+            $('#example2').datepicker({
+                format: "yyyy-mm-dd"
+            });
+            $('#example3').datepicker({
+                format: "yyyy-mm-dd"
+            });
+            $('#example4').datepicker({
+                format: "yyyy-mm-dd"
+            });
+            $('#example5').datepicker({
+                format: "yyyy-mm-dd"
+            });
+            $('#example6').datepicker({
+                format: "yyyy-mm-dd"
+            });
+            $('#example7').datepicker({
+                format: "yyyy-mm-dd"
+            });
+            $('#example8').datepicker({
+                format: "yyyy-mm-dd"
+            });
+            $('#example9').datepicker({
+                format: "yyyy-mm-dd"
+            });
+            $('#example10').datepicker({
+                format: "mm/yyyy"
+            });
+            $('#example11').datepicker({
+                format: "mm/yyyy"
+            });
+            $('#example12').datepicker({
+                format: "yyyy"
+            });
+            $('#example13').datepicker({
+                format: "yyyy"
+            });
+            $('#example14').datepicker({
+                format: "yyyy"
+            });
+            $('#example15').datepicker({
+                format: "yyyy"
+            });
+            $('#example16').datepicker({
+                format: "yyyy"
+            });
+            $('#example17').datepicker({
+                format: "yyyy"
+            });
+            $('#example18').datepicker({
+                format: "yyyy"
+            });
+            $('#example19').datepicker({
+                format: "yyyy"
+            });
+            $('#example20').datepicker({
+                format: "mm/yyyy"
+            });
+            $('#example21').datepicker({
+                format: "mm/yyyy"
+            });
+            $('#example22').datepicker({
+                format: "mm/yyyy"
+            });
+            $('#example23').datepicker({
+                format: "mm/yyyy"
+            });
+            $('#example24').datepicker({
+                format: "mm/yyyy"
+            });
+            $('#example25').datepicker({
+                format: "mm/yyyy"
+            });
+
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $("#visit").change(function () {
+                $("#visit_det").toggle();
+            });
+        })
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#contacted_fac").change(function () {
+                $("#contact_fac").toggle();
+            });
+        })
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#scholarship").change(function () {
+                $("#scholar").toggle();
+            });
+        })
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#funding").change(function () {
+                $("#other_funding").toggle();
+            });
+        })
+    </script>		
+
+    <script>
+        $("#insert").click(function () {
+            $("#acadtable").each(function () {
+                var tds = '<tr>';
+                jQuery.each($('tr:last td', this), function () {
+                    tds += '<td>' + $(this).html() + '</td>';
+                });
+                tds += '</tr>';
+                if ($('tbody', this).length > 0) {
+                    $('tbody', this).append(tds);
+                } else {
+                    $(this).append(tds);
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $('input[type="button"]').click(function(e){
+            $(this).closest('tr').remove()
+        })    
+    </script>
+
+    <script>    
+        $('#myFile').bind('change', function() {
+            var siz = this.files[0].size;    
+            if (siz > 262144) {
+                alert("Max file size allowed for pdf is 256 KB. Please change the file.")
+            } else {
+            }
+        });    
+    </script>
+
+    <script>
+        $('#mydet').bind('change', function() {
+            var siz = this.files[0].size;    
+            if (siz > 51200) {
+                alert("Max file size allowed for images is 50 KB. Please change the image.")
+            } else {
+            }
+        });    
+    </script>
+
+    <script>
+        $(document).on("keypress", ":input:not(textarea)", function(event) {
+            return event.keyCode != 13;
+        });
+    </script>
+
+    <script>
+        function formcheck1() {
+            var items = document.getElementsByClassName('form-control');
+            var chk = 0;
+            for (var i = 0; i < items.length; i++) {
+                if (!($(items[i]).val())) {
+                    id = items[i].name;
+                    document.getElementById(id).innerHTML="*"; 
+                    chk++;
+                } else {
+                    id = items[i].name;
+                    document.getElementById(id).innerHTML="";
+                }	
+            }
+            if (chk > 0) {
+                alert("Please fill the mandatory fields (*).")
+                return false;
+            } else {
+                return true;
+            }
+        }	
+    </script>
+    
+    <script>
+        function checkformat(field) {
+            file = field.value;
+            id = field.id;
+            var fileLen = file.length;
+            var lastValue = file.substring(fileLen - 3, fileLen);
+            if (lastValue != 'pdf') {
+                alert("Please make sure the file is in PDF format");
+                document.getElementById(id).focus();
+                return false;
+            }
+        }
+    </script>
+
+    <script>
+        function formcheck() {
+            var items = document.getElementsByClassName('form-control');
+            var chk = 0;
+            for (var i = 0; i < items.length; i++) {
+                if (!($(items[i]).val())) {
+                    id = items[i].name;
+                    document.getElementById(id).innerHTML="*"; 
+                    chk++;
+                } else {
+                    id = items[i].name;
+                    document.getElementById(id).innerHTML="";
+                }	
+            }	
+            if (chk > 0) {
+                alert("Please fill the mandatory fields (*).")
+                return false;
+            } else {
+                var inputs = document.getElementsByTagName('input');
+                var chkfile = 0;
+                for(var i = 0; i < inputs.length; i++) {
+                    if(inputs[i].type.toLowerCase() == 'file') {
+                        if (inputs[i].value != ''){
+                            file = inputs[i].value;
+                            id = inputs[i].id;
+                            if (id != 'mydet_photo' && id != 'mydet_sig' && id != 'mydet_photo1' && id != 'mydet_sig1'){
+                                var fileLen = file.length;
+                                var lastValue = file.substring(fileLen - 3, fileLen);				
+                                if (lastValue != 'pdf') {
+                                    chkfile++;
+                                    alert("Please make sure all supporting documents are in PDF format");
+                                    document.getElementById(id).focus();
+                                    return false;					
+                                }
+                            }	
+                        }
+                    }
+                }
+                if (chkfile == 0) {
+                    return confirm('You will not be able to edit your application later. Are you sure you want to continue?');
+                }
+            }
+        }
+    </script>
+
+    <script>
+        function filecheck() {
+            var inputs = document.getElementsByTagName('input');
+            var chk = 0;
+            for(var i = 0; i < inputs.length; i++) {
+                if(inputs[i].type.toLowerCase() == 'file') {
+                    if (inputs[i].value != ''){
+                        file = inputs[i].value;
+                        id = inputs[i].id;
+                        if (id != 'mydet_photo' && id != 'mydet_sig' && id != 'mydet_photo1' && id != 'mydet_sig1'){
+                            var fileLen = file.length;
+                            var lastValue = file.substring(fileLen - 3, fileLen);				
+                            if (lastValue != 'pdf') {
+                                chk++;
+                                alert("Please make sure all supporting documents are in PDF format");
+                                document.getElementById(id).focus();
+                                return false;					
+                            }
+                        }	
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        function readURL(input) {
+           if (input.files && input.files[0]) {
+               var reader = new FileReader();
+
+               reader.onload = function (e) {
+                   $('#sign')
+                       .attr('src', e.target.result)
+                       .width(150)
+                       .height(200);
+               };
+
+               reader.readAsDataURL(input.files[0]);
+           }
+       }
+
+                function loadURL(input) {
+           if (input.files && input.files[0]) {
+               var reader = new FileReader();
+
+               reader.onload = function (e) {
+                   $('#photo')
+                       .attr('src', e.target.result)
+                       .width(150)
+                       .height(200);
+               };
+
+               reader.readAsDataURL(input.files[0]);
+           }
+       }
+    </script>
+    </body>
+</html>
